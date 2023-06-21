@@ -1,0 +1,15 @@
+.student__link {
+    display: inline-block;
+    margin-top: 100px;
+
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}

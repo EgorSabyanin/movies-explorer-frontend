@@ -2,7 +2,11 @@ import logo from './logo.svg';
 
 // * Import User's Components
 
+import AboutProject from './components/AboutProject';
 import Technologies from './components/Technologies';
+import Student from './components/Student';
+import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,7 +18,11 @@ function App() {
             </nav>
         </header>
       </div>
+      <AboutProject />
       <Technologies />
+      <Student />
+      <Portfolio />
+      <Footer />
       </>
   );
 }
