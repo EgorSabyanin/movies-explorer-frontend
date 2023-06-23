@@ -11,6 +11,14 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/navigation/navigation.css);
 
+/* Promo */
+@import url(./blocks/promo/promo.css);
+@import url(./blocks/promo/promo__title/promo__title.css);
+
+/* NavTab */
+@import url(./blocks/navtab/navtab.css);
+@import url(./blocks/navtab/__list/navtab__list.css);
+@import url(./blocks/navtab/__link/navtab__link.css);
 
 /* About Project */
 @import url(./blocks/about-project/__wrapper/about-project__wrapper.css);

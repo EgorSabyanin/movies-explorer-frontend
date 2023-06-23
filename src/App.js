@@ -1,26 +1,43 @@
-import logo from './logo.svg';
+import Logo from './components/Logo';
 
 // * Import User's Components
 
+// * Page Component
+import Promo from './components/Promo';
+import NavTab from './components/NavTab';
 import AboutProject from './components/AboutProject';
 import Technologies from './components/Technologies';
-import Student from './components/Student';
+import AboutMe from './components/AboutMe';
 import Portfolio from './components/Portfolio';
+
+// * Basic Page Component
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
       <div className="page__wrapper">
-        <header className="header">
-          <nav className="navigation">
-            <img src={logo} alt="Логотип"/>
-            </nav>
-        </header>
+        <Header>
+          <div className='navigation__column'>
+            <Logo />
+            <a className='navigation__link'>
+              Фильмы
+            </a>
+            <a className='navigation__link'>
+              Сохранённые фильмы
+            </a>
+          </div>
+          <div className='navigation__column'>
+            <button className='navigation__button'>Аккаунт</button>
+          </div>
+        </Header>
       </div>
+      <Promo />
+      <NavTab />
       <AboutProject />
       <Technologies />
-      <Student />
+      <AboutMe />
       <Portfolio />
       <Footer />
       </>

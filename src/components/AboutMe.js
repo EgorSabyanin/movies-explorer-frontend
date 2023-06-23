@@ -2,7 +2,7 @@ import person from '../images/person.png';
     
 import HeadSection from './HeadSection';
 
-function Student() {
+function AboutMe() {
     return (
         <>
             <section className="student">
@@ -28,4 +28,4 @@ function Student() {
     )
 }
 
-export default Student;
+export default AboutMe;

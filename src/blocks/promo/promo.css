@@ -1,0 +1,10 @@
+.promo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 524px;
+    background-color: #073042;
+    background-image: url('../../images/practicum.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}

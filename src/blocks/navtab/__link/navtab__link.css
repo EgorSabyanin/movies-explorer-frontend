@@ -1,0 +1,10 @@
+.navtab__link {
+    padding: unset;
+    margin: unset;
+    color: #FFF;
+    font-size: 13px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration-line: underline;
+}
