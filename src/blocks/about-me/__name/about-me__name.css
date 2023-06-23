@@ -1,0 +1,13 @@
+.about-me__name {
+    margin: unset;
+    padding: unset;
+    margin-top: 26px;
+
+    color: #FFF;
+    font-size: 50px;
+    font-family: Inter;
+    line-height: 58px;
+    letter-spacing: -2px;
+    font-weight: 400;
+    /* or 157% */
+}

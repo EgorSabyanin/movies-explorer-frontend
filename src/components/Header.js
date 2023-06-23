@@ -1,7 +1,7 @@
 function Header({ children}) {
     return (
         <header className="header">
-            <nav className="navigation">
+            <nav className="navigation page__wrapper">
                 { children }
             </nav>
         </header>

@@ -17,22 +17,15 @@ import Header from './components/Header';
 function App() {
   return (
     <>
-      <div className="page__wrapper">
-        <Header>
-          <div className='navigation__column'>
-            <Logo />
-            <a className='navigation__link'>
-              Фильмы
-            </a>
-            <a className='navigation__link'>
-              Сохранённые фильмы
-            </a>
+      <Header>
+        <div className='navigation__column'>
+          <Logo />
+        </div>
+        <div className='navigation__column'>
+          <a className='navigation__link'>Регистрация</a>
+          <a className='navigation__button'>Войти</a>
           </div>
-          <div className='navigation__column'>
-            <button className='navigation__button'>Аккаунт</button>
-          </div>
-        </Header>
-      </div>
+      </Header>
       <Promo />
       <NavTab />
       <AboutProject />

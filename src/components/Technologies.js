@@ -2,7 +2,7 @@ import Technology from './Technology';
 
 function Technologies() {
     return (
-        <section className="technology">
+        <section id="techs" className="technology">
             <div className="page__wrapper">
                 <p className="technology__text">Технологии</p>
                 <hr className="technology__break-line" />

@@ -2,7 +2,7 @@ import HeadSection from './HeadSection';
 
 function AboutProject() {
     return (
-        <section className="about-project">
+        <section id="aboutProject" className="about-project">
             <div className="page__wrapper">
                 <HeadSection title="О проекте" />
                 <div className="about-project__wrapper">
@@ -24,8 +24,8 @@ function AboutProject() {
                     </p>
                 </div>
                 <div className="about-project__timeline">
-                    <p className="about-project__label">Back-end</p>
-                    <p className="about-project__label">Front-end</p>
+                    <p className="about-project__label about-project__label_stage_backend">Back-end</p>
+                    <p className="about-project__label about-project__label_stage_frontend">Front-end</p>
                 </div>
             </div>    
         </section>
