@@ -1,0 +1,28 @@
+import person from '../../../images/person.png';
+import './AboutMe.css';
+import HeadSection from '../../HeadSection';
+
+function AboutMe() {
+    return (
+            <section id="aboutMe" className="about-me">
+                <div className="page__wrapper">
+                    <HeadSection title="Студент" />
+                    <div className="about-me__wrapper">
+                        <div className="about-me__column">
+                            <h1 className="about-me__name">Егор</h1>
+                            <h3 className="about-me__short-info">Фронтенд-разработчик, 23 года</h3>
+                            <p className="about-me__description">
+                                Я родился и Минусинске, а живу в Абакане закончил факультет информатики ХГУ. Люблю путешествовать, ходить в спортзал, увлекаюсь бегом и другими спортивными вещами. Проработал около 7 месяцев в веб-студии «Magneex». Хочу связать жизнь с разработкой коммерческих сайтов.
+                            </p>
+                            <a className="about-me__link" href="https://github.com/EgorSabyanin" target="_blank" rel="noreferrer">Github</a>
+                        </div>
+                        <div className="about-me__column">
+                            <img className="about-me__avatar" src={person} alt='Виталий' />
+                        </div>
+                    </div>
+                </div>
+            </section>
+    )
+}
+
+export default AboutMe;

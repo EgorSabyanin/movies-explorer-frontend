@@ -1,0 +1,23 @@
+.promo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 524px;
+    background-color: #073042;
+    background-image: url('../../../images/practicum.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.promo__title {
+    margin: unset;
+    padding: unset;
+    width: 730px;
+    color: #FFF;
+    text-align: center;
+    font-size: 50px;
+    font-family: Inter;
+    line-height: 58px;
+    letter-spacing: -2px;
+    font-weight: 400;
+}

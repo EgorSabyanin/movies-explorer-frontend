@@ -1,0 +1,40 @@
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background: #202020;
+}
+
+.error__title {
+    margin: unset;
+    padding: unset;
+    color: #FFF;
+    text-align: center;
+    font-size: 140px;
+    font-family: Inter;
+    font-weight: 400;
+}
+
+.error__text {
+    margin: unset;
+    margin-top: 5px;
+    padding: unset;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-family: Inter;    
+}
+
+.error__link {
+    margin: unset;
+    margin-top: 185px;
+    padding: unset;
+    color: #4285F4;
+    text-align: center;
+    font-size: 14px;
+    font-family: Inter;
+    cursor: pointer;
+}
