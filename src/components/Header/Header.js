@@ -1,6 +1,8 @@
-function Header({ children}) {
+import './Header.css';
+
+function Header({ userClass = null, children }) {
     return (
-        <header className="header">
+        <header className={userClass ? userClass + ' ' + 'header' : 'header'}>
             <nav className="navigation page__wrapper">
                 { children }
             </nav>

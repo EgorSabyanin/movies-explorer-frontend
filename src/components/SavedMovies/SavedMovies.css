@@ -1,0 +1,22 @@
+.saved-movies {
+    margin-top: 70px;
+}
+
+.saved-movies__button-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 91px;
+    margin-bottom: 168px;
+    color: #FFF;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 500;
+    width: 320px;
+    height: 36px;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}

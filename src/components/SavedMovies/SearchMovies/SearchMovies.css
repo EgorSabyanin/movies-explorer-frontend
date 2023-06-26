@@ -1,0 +1,35 @@
+.search-movies {
+    margin-top: 70px;
+}
+
+.search-movies__input {
+    background: transparent;
+    padding: unset;
+    margin: unset;
+    border: none;
+    color: #8B8B8B;
+    font-size: 28px;
+    font-family: Inter;
+    font-weight: 500;
+    width: 100%;
+    outline: none;
+}
+
+.search-movies__fieldset {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    margin: unset;
+    padding: unset;
+    border-bottom: 1px solid #424242;
+    padding-bottom: 13px;
+}
+
+.search-movies__submit {
+    height: 34px;
+    width: 34px;
+    border: none;
+    background: url(../../../images/find.svg);
+    background-position: right;
+    cursor: pointer;
+}

@@ -9,20 +9,20 @@ import AboutMe from './AboutMe/AboutMe';
 import Portfolio from "./Portfolio/Portfolio";
 
 // * Basic Page Component
-import Footer from '../Footer';
-import Header from '../Header';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 function Main() {
     return (
         <>
-        <Header>
+        <Header userClass='header_theme_main'>
           <div className='navigation__column'>
             <Logo />
           </div>
           <div className='navigation__column'>
             <a className='navigation__link'>Регистрация</a>
             <a className='navigation__button'>Войти</a>
-            </div>
+          </div>
         </Header>
         <Promo />
         <NavTab />

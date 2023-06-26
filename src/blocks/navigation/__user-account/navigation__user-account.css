@@ -1,0 +1,16 @@
+.navigation__user-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid rgba(170, 170, 170, .2);;
+    width: 100px;
+    height: 32px;
+    color: #FFF;
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    gap: 7px;
+}
