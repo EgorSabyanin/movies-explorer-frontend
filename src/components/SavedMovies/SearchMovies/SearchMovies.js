@@ -1,5 +1,7 @@
 import './SearchMovies.css';
 
+import FilterCheckbox from '../../FilterCheckbox/FilterCheckbox';
+
 function SearchMovies() {
     return (
         <>
@@ -10,6 +12,7 @@ function SearchMovies() {
                         <button className='search-movies__submit' type='submit'>
                         </button>
                     </fieldset>
+                    <FilterCheckbox />
                 </form>
             </div>
         </>

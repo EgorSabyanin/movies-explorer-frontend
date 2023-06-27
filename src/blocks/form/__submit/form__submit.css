@@ -1,0 +1,21 @@
+.form__submit {
+    padding: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    height: 45px;
+    width: 100%;
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 500; 
+    border-radius: 3px;
+    background: #4285F4;
+    border: none;
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.form__submit:hover {
+    opacity: .8;
+}

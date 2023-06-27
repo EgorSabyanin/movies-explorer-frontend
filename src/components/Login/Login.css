@@ -1,0 +1,51 @@
+.login {
+    width: 396px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: unset;
+}
+
+.login__title {
+    margin-top: 40px;
+    color: #FFF;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 500;    
+}
+
+.login__label {
+    display: block;
+    margin-top: 20px;
+}
+
+.login__label:first-of-type {
+    margin-top: unset;
+}
+
+.login__input {
+    margin-top: 10px;
+}
+
+.login__form {
+    margin-top: 40px;
+}
+
+.login__fieldset {
+    padding: unset;
+    margin: unset;
+    border: none;
+}
+
+.login__submit {
+    margin-top: 180px;
+}
+
+.login__error {
+    margin-top: 10px;
+}
+
+.login__text {
+    margin: unset;
+    padding: unset;
+    margin-top: 16px;
+}

@@ -1,0 +1,51 @@
+.register {
+    width: 396px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: unset;
+}
+
+.register__title {
+    margin-top: 40px;
+    color: #FFF;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 500;    
+}
+
+.register__label {
+    display: block;
+    margin-top: 20px;
+}
+
+.register__label:first-of-type {
+    margin-top: unset;
+}
+
+.register__input {
+    margin-top: 10px;
+}
+
+.register__form {
+    margin-top: 40px;
+}
+
+.register__fieldset {
+    padding: unset;
+    margin: unset;
+    border: none;
+}
+
+.register__submit {
+    margin-top: 70px;
+}
+
+.register__error {
+    margin-top: 10px;
+}
+
+.register__text {
+    margin: unset;
+    padding: unset;
+    margin-top: 16px;
+}
