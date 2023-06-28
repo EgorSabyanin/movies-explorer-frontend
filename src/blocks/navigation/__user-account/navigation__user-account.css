@@ -1,4 +1,6 @@
 .navigation__user-account {
+    padding: unset;
+    margin: unset;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,9 +10,14 @@
     height: 32px;
     color: #FFF;
     font-size: 14px;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     line-height: 16px;
     text-decoration: none;
     gap: 7px;
+    transition: all 700ms;
+}
+
+.navigation__user-account:hover {
+    opacity: .8;
 }

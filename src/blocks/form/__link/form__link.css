@@ -2,7 +2,7 @@
     color: #4285F4;
     text-align: center;
     font-size: 14px;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     transition: all 700ms;
     text-decoration: none;
 }

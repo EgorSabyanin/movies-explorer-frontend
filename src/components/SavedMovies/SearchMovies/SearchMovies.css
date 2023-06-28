@@ -9,7 +9,7 @@
     border: none;
     color: #8B8B8B;
     font-size: 28px;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     width: 100%;
     outline: none;
@@ -29,7 +29,10 @@
     height: 34px;
     width: 34px;
     border: none;
-    background: url(../../../images/find.svg);
-    background-position: right;
+    border-radius: 50%;
+    background: url(../../../images/search.svg);
+    background-color: #4285F4;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
 }

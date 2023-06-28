@@ -1,5 +1,6 @@
 import Logo from '../Logo';
 
+import { Link } from 'react-router-dom';
 // * Page Component
 import Promo from './Promo/Promo';
 import NavTab from './NavTab/NavTab';
@@ -20,8 +21,8 @@ function Main() {
             <Logo />
           </div>
           <div className='navigation__column'>
-            <a className='navigation__link'>Регистрация</a>
-            <a className='navigation__button'>Войти</a>
+            <Link to="/signup" className='navigation__link'>Регистрация</Link>
+            <Link to="/signin" className='navigation__button'>Войти</Link>
           </div>
         </Header>
         <Promo />

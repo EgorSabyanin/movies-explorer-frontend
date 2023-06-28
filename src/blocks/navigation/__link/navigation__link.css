@@ -1,8 +1,17 @@
 .navigation__link {
+    padding: unset;
+    margin: unset;
     color: #FFF;
     text-align: right;
     font-size: 12px;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 500;
     line-height: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 700ms;
+}
+
+.navigation__link:hover {
+    opacity: .7;
 }

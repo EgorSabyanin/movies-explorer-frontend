@@ -22,9 +22,9 @@ function SavedMovies() {
                     <Logo />
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
-                            <a className='navigation__link navigation__link_active'>
+                            <Link className='navigation__link navigation__link_active' to="/movies">
                                 Фильмы
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
                             <a className='navigation__link'>

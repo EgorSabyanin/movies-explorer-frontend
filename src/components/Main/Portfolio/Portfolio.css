@@ -48,3 +48,8 @@
 
     color: #8B8B8B;    
 }
+
+.portfolio__icon {
+    width: 24px;
+    height: 24px;
+}

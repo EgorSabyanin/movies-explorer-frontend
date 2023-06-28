@@ -60,14 +60,17 @@
     color: #FFFFFF;
 }
 
-.techs__stack {
+.techs__list {
     margin-top: 100px;
     display: flex;
     justify-content: center;
     gap: 10px;
+    list-style-type: none;
 }
 
-.techs__button {
+.techs__item {
+    padding: unset;
+    margin: unset;
     display: flex;
     align-items: center;
     justify-content: center;

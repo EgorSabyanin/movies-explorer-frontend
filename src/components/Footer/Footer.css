@@ -17,6 +17,8 @@
 }
 
 .footer__link {
+    padding: unset;
+    margin: unset;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -25,9 +27,14 @@
     /* identical to box height */
 
     text-align: right;
-
+    cursor: pointer;
     color: #FFFFFF;
     text-decoration: none;
+    transition: all 700ms;
+}
+
+.footer__link:hover {
+    opacity: .7;
 }
 
 .footer__copyright {
