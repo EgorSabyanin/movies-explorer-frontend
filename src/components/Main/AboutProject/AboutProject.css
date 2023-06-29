@@ -104,3 +104,19 @@
 .about-project__label_stage_backend {
     width: 20%;
 }
+
+@media screen and (width < 1024px) {
+    .about-project {
+        height: 585px;
+        margin-bottom: 93px;
+    }
+
+    .about-project__text {
+        margin-top: 22px;
+        width: 320px;
+    }
+}
+
+@media screen and (width < 768px) {
+    
+}

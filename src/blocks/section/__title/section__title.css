@@ -1,4 +1,6 @@
 .section__title {
+    margin: unset;
+    padding: unset;
     margin-bottom: 23px;
     padding-top: 100px;
 
@@ -12,4 +14,10 @@
     letter-spacing: -0.04em;
 
     color: #FFFFFF;
+}
+
+@media screen and (width < 1024px) {
+    .section__title {
+        padding-top: 90px;
+    }
 }

@@ -9,11 +9,12 @@ import MovieCard from '../MovieCard/MovieCard';
 
 import { Link } from "react-router-dom";
 
-import movie from '../../images/saved_movies/12.png';
+import movie from '../../images/saved_movies/9.png';
 
-import './SavedMovies.css';
 
-function SavedMovies() {
+import './Movies.css';
+
+function Movies() {
     return (
         <>
             <Header>
@@ -36,14 +37,28 @@ function SavedMovies() {
                     <Link className='navigation__user-account' to='/profile'><img src={ userAccountIcon } alt='Профиль пользователя'/>Аккаунт</Link>
                 </div>
             </Header>
-             <section className='saved-movies'>
+            <section className='movies'>
                 <div className='page__wrapper'>
                     <SearchMovies />
                     <MoviesCardList> 
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie } isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true} />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
                     </MoviesCardList>
+                    <button className='movies__button-more'>Ещё</button>
                 </div>
             </section>
             <Footer />
@@ -51,4 +66,4 @@ function SavedMovies() {
     );
 }
 
-export default SavedMovies;
+export default Movies;

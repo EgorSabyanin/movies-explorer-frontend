@@ -2,3 +2,15 @@
     margin: 0 auto;
     width: 1140px;
 }
+
+@media screen and (width < 1024px) {
+    .page__wrapper {
+        width: 668px;
+    }
+}
+
+@media screen and (width < 768px) {
+    .page__wrapper {
+        width: 320px;
+    }
+}

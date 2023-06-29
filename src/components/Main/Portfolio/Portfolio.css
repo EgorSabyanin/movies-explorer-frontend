@@ -4,6 +4,8 @@
 }
 
 .portfolio__item {
+    padding: unset;
+    margin: unset;
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
@@ -39,6 +41,8 @@
 }
 
 .portfolio__title {
+    margin: unset;
+    padding: unset;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -52,4 +56,19 @@
 .portfolio__icon {
     width: 24px;
     height: 24px;
+}
+
+@media screen and (width < 1024px) {
+    .portfolio {
+        margin-top: 85px;
+    }
+
+    .portfolio__list {
+        margin-top: 20px;
+    }
+
+    .portfolio__link {
+        font-size: 28px;
+        letter-spacing: -1.12px;
+    }
 }

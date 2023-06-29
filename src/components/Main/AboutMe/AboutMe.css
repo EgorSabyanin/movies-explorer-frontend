@@ -66,3 +66,38 @@
     height: 327px;
     border-radius: 10px; 
 }
+
+@media screen and (width < 1024px) {
+    .about-me__wrapper {
+        gap: 50px;
+    }
+
+    .about-me__name {
+        margin: unset;
+        padding: unset;
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: -1.6px;
+    }
+
+    .about-me__avatar {
+        width: 255px;
+        height: 307px;
+    }
+
+    .about-me__short-info {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__description {
+        margin-top: 20px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .about-me__link {
+        margin-top: 87px;
+    }
+}

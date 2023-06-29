@@ -1,6 +1,6 @@
 import './SearchMovies.css';
 
-import FilterCheckbox from '../../FilterCheckbox/FilterCheckbox';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchMovies() {
     return (

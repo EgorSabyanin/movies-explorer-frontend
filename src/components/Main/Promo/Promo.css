@@ -21,3 +21,13 @@
     letter-spacing: -2px;
     font-weight: 400;
 }
+
+@media screen and (width < 1024px) {
+    .promo {
+        height: 784px;
+    }
+}
+
+@media screen and (width < 768px) {
+
+}
