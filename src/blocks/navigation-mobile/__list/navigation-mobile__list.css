@@ -1,0 +1,10 @@
+.navigation-mobile__list {
+    padding: unset;
+    margin: unset;
+    margin-top: 105px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-self: center;
+    list-style-type: none;
+}

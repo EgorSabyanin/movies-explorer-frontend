@@ -16,3 +16,14 @@
 @import url(./blocks/navigation/__list/navigation__list.css);
 @import url(./blocks/navigation/__column/navigation__column.css);
 @import url(./blocks/navigation/__link/navigation__link_active.css);
+@import url(./blocks/navigation/__burger/navigation__burger.css);
+
+@import url(./blocks/navigation-mobile/navigation-mobile.css);
+@import url(./blocks/navigation-mobile/navigation-mobile_active.css);
+@import url(./blocks/navigation-mobile/__wrapper/navigation-mobile__wrapper.css);
+@import url(./blocks/navigation-mobile/__close/navigation-mobile__close.css);
+@import url(./blocks/navigation-mobile/__list/navigation-mobile__list.css);
+@import url(./blocks/navigation-mobile/__item/navigation-mobile__item.css);
+@import url(./blocks/navigation-mobile/__item/_user/navigation-mobile__item_user.css);
+@import url(./blocks/navigation-mobile/__link/navigation-mobile__link.css);
+@import url(./blocks/navigation-mobile/__link/_active/navigation-mobile__link_active.css);

@@ -7,3 +7,9 @@
     list-style-type: none;
     margin-left: 44px;
 }
+
+@media screen and (width < 1024px) {
+    .navigation__list {
+        display: none;
+    }
+}

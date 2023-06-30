@@ -1,0 +1,16 @@
+.navigation-mobile__link_active {
+    position: relative;
+}
+
+.navigation-mobile__link_active::after {
+    margin: unset;
+    padding: unset;
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    display: block;
+    bottom: -5px;
+    right: 0;
+    height: 2px;
+}

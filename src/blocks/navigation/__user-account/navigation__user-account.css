@@ -21,3 +21,9 @@
 .navigation__user-account:hover {
     opacity: .8;
 }
+
+@media screen and (width < 1024px) {
+    .navigation__user-account {
+        display: none;
+    }
+}

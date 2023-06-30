@@ -5,3 +5,12 @@
     row-gap: 32px;
     grid-template-columns: repeat(4, 270px);
 }
+
+@media screen and (width < 1024px) {
+    .movies-card__list {
+        grid-template-columns: repeat(2, 340px);
+        grid-auto-rows: 257px;
+        column-gap: 30px;
+        row-gap: 36px;
+    }
+}

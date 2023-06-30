@@ -1,0 +1,9 @@
+.navigation-mobile__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    height: 100vh;
+    background: #202020;
+    position: sticky;
+    top: 0;
+}

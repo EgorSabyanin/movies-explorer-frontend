@@ -18,11 +18,11 @@ function Register() {
             <h2 className="register__title">Добро пожаловать!</h2>
             <form className="register__form">
                 <fieldset className='register__fieldset'>
-                    <label className="form__label register__label" for="name">Имя</label>
+                    <label className="form__label register__label" htmlFor="name">Имя</label>
                     <input className="form__input register__input" type="text" placeholder="Имя" id="name" name="name" required />
-                    <label className="form__label register__label" for="email">E-mail</label>
+                    <label className="form__label register__label" htmlFor="email">E-mail</label>
                     <input className="form__input register__input" type="email" placeholder="E-mail" id="email" name="email" required />
-                    <label className="form__label register__label" for="password">Пароль</label>
+                    <label className="form__label register__label" htmlFor="password">Пароль</label>
                     <input className="form__input form__input_error register__input" type="password" placeholder='Пароль' id="password" name="password" required />
                     <span className="form__error register__error">Что-то пошло не так...</span>
                     <button className="form__submit register__submit" type="submit">Зарегистрироваться</button>

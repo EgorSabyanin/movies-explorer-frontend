@@ -18,9 +18,9 @@ function Login() {
             <h2 className="login__title">Рады видеть!</h2>
             <form className="login__form">
                 <fieldset className='login__fieldset'>
-                    <label className="form__label login__label" for="email">E-mail</label>
+                    <label className="form__label login__label" htmlFor="email">E-mail</label>
                     <input className="form__input login__input" type="email" placeholder="E-mail" id="email" name="email" required />
-                    <label className="form__label login__label" for="password">Пароль</label>
+                    <label className="form__label login__label" htmlFor="password">Пароль</label>
                     <input className="form__input login__input" type="password" placeholder='Пароль' id="password" name="password" required />
                     <button className="form__submit login__submit" type="submit">Войти</button>
                 </fieldset>

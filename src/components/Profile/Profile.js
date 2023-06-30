@@ -32,14 +32,14 @@ function Profile() {
                     <Logo />
                     <ul className='navigation__list'>
                         <li className='navigation__item'>
-                            <a className='navigation__link navigation__link_active'>
+                            <Link to="/movies" className='navigation__link navigation__link_active'>
                                 Фильмы
-                            </a>
+                            </Link>
                         </li>
                         <li className='navigation__item'>
-                            <a className='navigation__link'>
+                            <Link to="/saved-movies" className='navigation__link'>
                                 Сохранённые фильмы
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

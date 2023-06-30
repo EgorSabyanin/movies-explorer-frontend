@@ -13,6 +13,8 @@ import movie from '../../images/saved_movies/12.png';
 
 import './SavedMovies.css';
 
+import Preloader from '../Preloader/Preloader';
+
 function SavedMovies() {
     return (
         <>
@@ -39,6 +41,7 @@ function SavedMovies() {
              <section className='saved-movies'>
                 <div className='page__wrapper'>
                     <SearchMovies />
+                    {/* <Preloader /> */}
                     <MoviesCardList> 
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie } isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />

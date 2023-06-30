@@ -3,12 +3,13 @@
     gap: 14px;
     flex-direction: column;
     background-color: #222222;
-    width: 270px;
-    height: 218px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .movie-card__preview {
-    width: 270px;
+    width: 100%;
     height: 151px;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -76,4 +77,10 @@
 
 .movies-card__delete:hover {
     opacity: .8;
+}
+
+@media screen and (width < 1024px) {
+    .movie-card__preview {
+        height: 190px;
+    }
 }
