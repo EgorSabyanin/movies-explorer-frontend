@@ -51,3 +51,22 @@
     padding: unset;
     margin-top: 16px;
 }
+
+.register__icon {
+    display: block;
+}
+
+@media screen and (width < 768px) {
+    .register {
+        width: 260px;
+    }
+
+    .register__submit {
+        margin-top: 157px;
+    }
+
+    .register__icon {
+        display: flex;
+        justify-content: center;
+    }
+}

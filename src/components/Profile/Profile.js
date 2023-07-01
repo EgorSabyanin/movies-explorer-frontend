@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import { useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 
 import Logo from '../Logo';
@@ -24,9 +23,42 @@ function Profile() {
         console.log('Вы вышли из аккаунта');
     }
 
+    const buttonOpenNavigation  = useRef(null);
+    const mobileNavigation = useRef(null);
+    const buttonCloseNavigation = useRef(null); 
+
+    function openNavigation() {
+        buttonOpenNavigation.current.style.display = 'none';
+        mobileNavigation.current.classList.add('navigation-mobile_active');
+        console.log(buttonOpenNavigation);
+    }
+
+    
+    function closeNavigation() {
+        mobileNavigation.current.classList.remove('navigation-mobile_active');
+        buttonOpenNavigation.current.style.display = 'block';
+    }
+
+
     return (
         <>
-        <Header>
+            <nav className="navigation-mobile" ref={ mobileNavigation }>
+                <div className="navigation-mobile__wrapper" >
+                    <button className="navigation-mobile__close" ref={buttonCloseNavigation} onClick={ closeNavigation }></button>
+                    <ul className="navigation-mobile__list">
+                        <li className="navigation-mobile__item">
+                            <Link to="/" className="navigation-mobile__link">Главная</Link>
+                            <Link to="/movies" className="navigation-mobile__link navigation-mobile__link_active">Фильмы</Link>
+                            <Link to="/saved-movies" className="navigation-mobile__link">Сохранённые фильмы</Link>
+                        </li>
+                        <li className="navigation-mobile__item navigation-mobile__item_user">
+                            <Link to="/profile" className="navigation-mobile__user">
+                                <img src={userAccountIcon} alt='Профиль пользователя' />Аккаунт
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <Header>
                 <div className='navigation__column'>
                     <Logo />
@@ -44,10 +76,10 @@ function Profile() {
                     </ul>
                 </div>
                 <div className='navigation__column'>
-                    <Link className='navigation__user-account' to='/profile'><img src={ userAccountIcon } alt='Профиль пользователя'/>Аккаунт</Link>
+                    <Link className='navigation__user-account' to='/profile'><img src={userAccountIcon} alt='Профиль пользователя' />Аккаунт</Link>
+                    <button className="navigation__burger" ref={buttonOpenNavigation} onClick={openNavigation}></button>
                 </div>
             </Header>
-        </Header>
             <section className='profile'>
                 <div className='page__wrapper'>
             <h2 className='profile__greeting'>Привет, { user.name}!</h2>

@@ -19,3 +19,10 @@
 .form__submit:hover {
     opacity: .8;
 }
+
+@media screen and (width < 768px) {
+    .form__submit {
+        font-size: 12px;
+        line-height: normal;
+    }
+}

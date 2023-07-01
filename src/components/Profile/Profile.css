@@ -81,3 +81,17 @@
     font-family: Inter, sans-serif;
     font-weight: 500;
 }
+
+@media screen and (width < 768px) {
+    .profile__form {
+        margin-top: 80px;
+        margin-left: 15px;
+        margin-right: 15px;
+        width: calc(100% - 30px);
+    }
+
+    .profile__buttons {
+        margin-top: 180px;
+        margin-bottom: 40px;
+    }
+}

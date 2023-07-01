@@ -36,3 +36,10 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
+@media screen and (width < 768px) {
+    .search-movies__input {
+        font-size: 18px;
+        width: 90%;
+    }
+}

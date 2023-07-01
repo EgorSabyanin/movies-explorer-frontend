@@ -14,3 +14,11 @@
         row-gap: 36px;
     }
 }
+
+@media screen and (width < 768px) {
+    .movies-card__list {
+        gap: 20px;
+        margin-top: 90px;
+        grid-template-columns: 300px;
+    }
+}

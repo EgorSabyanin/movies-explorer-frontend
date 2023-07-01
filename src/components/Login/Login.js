@@ -14,7 +14,9 @@ import '../../blocks/form/__text/form__text.css'
 function Login() {
     return (
         <section className="login">
-            <Logo />
+            <div className="login__icon">
+                <Logo />
+            </div>
             <h2 className="login__title">Рады видеть!</h2>
             <form className="login__form">
                 <fieldset className='login__fieldset'>

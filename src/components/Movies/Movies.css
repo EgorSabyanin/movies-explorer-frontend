@@ -33,3 +33,11 @@
         margin-top: 80px;
     }
 }
+
+@media screen and (width < 768px) {
+    .movies__button-more {
+        width: 100%;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+}

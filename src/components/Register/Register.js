@@ -14,7 +14,9 @@ import '../../blocks/form/__text/form__text.css'
 function Register() {
     return (
         <section className="register">
-            <Logo />
+            <div className="register__icon">
+                <Logo />
+            </div>
             <h2 className="register__title">Добро пожаловать!</h2>
             <form className="register__form">
                 <fieldset className='register__fieldset'>

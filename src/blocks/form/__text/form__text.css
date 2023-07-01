@@ -4,3 +4,9 @@
     font-size: 14px;
     font-family: Inter, sans-serif;
 }
+
+@media screen and (width < 768px) {
+    .form__text {
+        font-size: 12px;
+    }
+}

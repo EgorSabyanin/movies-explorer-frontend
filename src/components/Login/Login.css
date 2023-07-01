@@ -51,3 +51,22 @@
     padding: unset;
     margin-top: 16px;
 }
+
+.login__icon {
+    display: block;
+}
+
+@media screen and (width < 768px) {
+    .login {
+        width: 260px;
+    }
+
+    .login__submit {
+        margin-top: 267px;
+    }
+
+    .login__icon {
+        display: flex;
+        justify-content: center;
+    }
+}

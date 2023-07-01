@@ -10,3 +10,9 @@
 .form__link:hover {
     opacity: .8;
 }
+
+@media screen and (width < 768px) {
+    .form__link {
+        font-size: 12px;
+    }
+}

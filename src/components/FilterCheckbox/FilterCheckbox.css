@@ -80,3 +80,9 @@
     flex-direction: row-reverse;
   }
 }
+
+@media screen and (width < 768px) {
+  .filter-checkbox {
+    justify-content: center;
+  }
+}
