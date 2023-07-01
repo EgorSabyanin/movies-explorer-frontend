@@ -1,3 +1,6 @@
-.section__break-line {
+.section__break-line 
+{
+     padding: unset;
+     margin: unset;
      color: #dadada;
 }

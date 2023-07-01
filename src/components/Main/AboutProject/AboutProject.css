@@ -118,5 +118,50 @@
 }
 
 @media screen and (width < 768px) {
-    
+    .about-project__wrapper {
+        flex-direction: column;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        gap: 56px;
+    }
+
+    .about-project__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        font-weight: normal;
+    }
+
+    .about-project__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project__text {
+        width: 100%;
+    }
+
+    .about-project__timeline_stage_backend, .about-project__timeline_stage_frontend {
+        font-size: 11px;
+    }
+
+    .about-project__timeline_stage_backend {
+        width: 35%;
+    }
+
+    .about-project__timeline_stage_frontend {
+        width: 65%;
+    }
+
+    .about-project__label {
+        margin-top: 10px;
+        font-size: 11px;
+    }
+
+    .about-project__label_stage_backend {
+        width: 35%;
+    }
+
+    .about-project__label_stage_frontend {
+        width: 65%;
+    }
 }

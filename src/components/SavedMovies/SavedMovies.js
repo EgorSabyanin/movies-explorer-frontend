@@ -7,6 +7,7 @@ import SearchMovies from '../SearchMovies/SearchMovies';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import MovieCard from '../MovieCard/MovieCard';
 
+import { useRef } from 'react';
 import { Link } from "react-router-dom";
 
 import movie from '../../images/saved_movies/12.png';
@@ -16,8 +17,41 @@ import './SavedMovies.css';
 import Preloader from '../Preloader/Preloader';
 
 function SavedMovies() {
+    const buttonOpenNavigation  = useRef(null);
+    const mobileNavigation = useRef(null);
+    const buttonCloseNavigation = useRef(null); 
+
+    function openNavigation() {
+        buttonOpenNavigation.current.style.display = 'none';
+        mobileNavigation.current.classList.add('navigation-mobile_active');
+        console.log(buttonOpenNavigation);
+    }
+
+    
+    function closeNavigation() {
+        mobileNavigation.current.classList.remove('navigation-mobile_active');
+        buttonOpenNavigation.current.style.display = 'block';
+    }
+
     return (
         <>
+        <nav className="navigation-mobile" ref={ mobileNavigation }>
+                <div className="navigation-mobile__wrapper" >
+                    <button className="navigation-mobile__close" ref={buttonCloseNavigation} onClick={ closeNavigation }></button>
+                    <ul className="navigation-mobile__list">
+                        <li className="navigation-mobile__item">
+                            <Link to="/" className="navigation-mobile__link">Главная</Link>
+                            <Link to="/movies" className="navigation-mobile__link">Фильмы</Link>
+                            <Link to="/saved-movies" className="navigation-mobile__link navigation-mobile__link_active">Сохранённые фильмы</Link>
+                        </li>
+                        <li className="navigation-mobile__item navigation-mobile__item_user">
+                            <Link to="/profile" className="navigation-mobile__user">
+                                <img src={userAccountIcon} alt='Профиль пользователя' />Аккаунт
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <Header>
                 <div className='navigation__column'>
                     <Logo />
@@ -35,7 +69,8 @@ function SavedMovies() {
                     </ul>
                 </div>
                 <div className='navigation__column'>
-                    <Link className='navigation__user-account' to='/profile'><img src={ userAccountIcon } alt='Профиль пользователя'/>Аккаунт</Link>
+                    <Link className='navigation__user-account' to='/profile'><img src={userAccountIcon} alt='Профиль пользователя' />Аккаунт</Link>
+                    <button className="navigation__burger" ref={buttonOpenNavigation} onClick={ openNavigation }></button>
                 </div>
             </Header>
              <section className='saved-movies'>

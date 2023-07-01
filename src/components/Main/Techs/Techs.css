@@ -124,3 +124,33 @@
         margin-top: 83px;
     }
 }
+
+@media screen and (width < 768px) {
+    .techs {
+        min-height: 651px;
+        padding-bottom: 30px;
+    }
+
+    .techs__title {
+        margin-top: 60px;
+        font-size: 30px;
+        letter-spacing: -1.2px;
+    }
+
+    .techs__subtitle {
+        margin-top: 24px;
+        width: 100%;
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: -0.44px;
+    }
+
+    .techs__list {
+        margin-top: 50px;
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: repeat(2, 84px);
+        justify-content: center;
+        gap: 10px;
+    }
+}

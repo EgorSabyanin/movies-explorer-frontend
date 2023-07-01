@@ -7,6 +7,7 @@
     padding: unset;
     margin: unset;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -70,5 +71,23 @@
     .portfolio__link {
         font-size: 28px;
         letter-spacing: -1.12px;
+    }
+}
+
+@media screen and (width < 768px) {
+    .portfolio {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: -0.72px;
+    }
+
+    .portfolio__icon {
+        width: 18px;
+        height: 18px;
     }
 }

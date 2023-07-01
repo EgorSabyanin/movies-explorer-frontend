@@ -45,7 +45,7 @@ function Movies() {
                             <Link to="/saved-movies" className="navigation-mobile__link">Сохранённые фильмы</Link>
                         </li>
                         <li className="navigation-mobile__item navigation-mobile__item_user">
-                            <Link to="/profile" className="navigation-mobile__user-account">
+                            <Link to="/profile" className="navigation-mobile__user">
                                 <img src={userAccountIcon} alt='Профиль пользователя' />Аккаунт
                             </Link>
                         </li>

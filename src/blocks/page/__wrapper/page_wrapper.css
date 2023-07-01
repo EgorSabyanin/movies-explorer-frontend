@@ -11,6 +11,6 @@
 
 @media screen and (width < 768px) {
     .page__wrapper {
-        width: 320px;
+        width: 300px;
     }
 }
