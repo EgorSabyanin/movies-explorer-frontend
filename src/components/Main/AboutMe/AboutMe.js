@@ -5,8 +5,10 @@ import HeadSection from '../../HeadSection';
 function AboutMe() {
     return (
             <section id="aboutMe" className="about-me">
-                <div className="page__wrapper">
-                    <HeadSection title="Студент" />
+                    <div className="about-me__section">
+                        <h3 className="about-me__caption">Студент</h3>
+                        <hr className="about-me__line" />
+                    </div>
                     <div className="about-me__wrapper">
                         <div className="about-me__column">
                             <h1 className="about-me__name">Егор</h1>
@@ -20,7 +22,6 @@ function AboutMe() {
                             <img className="about-me__avatar" src={person} alt='Егор Сабянин' />
                         </div>
                     </div>
-                </div>
             </section>
     )
 }

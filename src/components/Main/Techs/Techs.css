@@ -1,6 +1,36 @@
 .techs {
+    max-width: 1280px;
     background-color: #272727;
     height: 625px;
+}
+
+.techs__container {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.techs__section {
+    margin: 0 auto;
+    padding-top: 110px;
+}
+
+.techs__name {
+    margin: unset;
+    margin-bottom: 23px;
+    padding: unset;
+    color: #FFF;
+    font-size: 22px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+}
+
+.techs__line {
+    width: 100%;
+    height: 1px;
+    background-color: #DADADA;
 }
 
 .techs__wrapper {
@@ -12,7 +42,7 @@
 .techs__title {
     margin: unset;
     padding: unset;
-    margin-top: 90px;
+    margin-top: 84px;
     margin-bottom: unset;
 
     font-family: 'Inter';

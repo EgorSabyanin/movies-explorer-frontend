@@ -1,8 +1,37 @@
+.about-me {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
 .about-me__wrapper {
     margin-top: 66px;
     display: flex;
     justify-content: space-between;
     gap: 270px;
+}
+
+.about-me__section {
+    margin: 0 auto;
+    padding-top: 120px;
+}
+
+.about-me__caption {
+    margin: unset;
+    margin-bottom: 23px;
+    padding: unset;
+    color: #FFF;
+    font-size: 22px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+}
+
+.about-me__line {
+    width: 100%;
+    height: 1px;
+    background-color: #DADADA;
 }
 
 .about-me__short-info {
@@ -21,7 +50,6 @@
 .about-me__name {
     margin: unset;
     padding: unset;
-    margin-top: 26px;
 
     color: #FFF;
     font-size: 50px;
@@ -101,6 +129,7 @@
         margin-top: 87px;
     }
 }
+
 
 @media screen and (width < 768px) {
     .about-me__wrapper {

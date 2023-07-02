@@ -13,7 +13,7 @@ import '../../blocks/form/__text/form__text.css'
 
 function Register() {
     return (
-        <section className="register">
+        <main className="register">
             <div className="register__icon">
                 <Logo />
             </div>
@@ -21,7 +21,7 @@ function Register() {
             <form className="register__form">
                 <fieldset className='register__fieldset'>
                     <label className="form__label register__label" htmlFor="name">Имя</label>
-                    <input className="form__input register__input" type="text" placeholder="Имя" id="name" name="name" required />
+                    <input className="form__input register__input" type="text" placeholder="Имя" id="name" name="name" required minLength="2" maxLength="30" />
                     <label className="form__label register__label" htmlFor="email">E-mail</label>
                     <input className="form__input register__input" type="email" placeholder="E-mail" id="email" name="email" required />
                     <label className="form__label register__label" htmlFor="password">Пароль</label>
@@ -31,7 +31,7 @@ function Register() {
                 </fieldset>
                 <p className="register__text form__text">Уже зарегистированы? <Link className="form__link" to="/signin">Войти</Link></p>
             </form>
-        </section>
+        </main>
     );
 }
 

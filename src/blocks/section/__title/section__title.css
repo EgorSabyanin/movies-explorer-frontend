@@ -1,17 +1,14 @@
 .section__title {
     margin: unset;
     padding: unset;
-    margin-bottom: 23px;
-    padding-top: 100px;
-
+    margin-bottom: 20px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
     line-height: 27px;
     /* identical to box height */
-
-    letter-spacing: -0.04em;
+    letter-spacing: -0.88px;
 
     color: #FFFFFF;
 }

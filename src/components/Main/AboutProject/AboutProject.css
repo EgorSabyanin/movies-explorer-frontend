@@ -1,5 +1,31 @@
 .about-project {
-    height: 608px;
+    margin: 0 auto;
+    max-width: 1140px;
+    height: 488px;
+}
+
+.about-project__section {
+    margin: 0 auto;
+    margin-top: 110px;
+}
+
+.about-project__name {
+    margin: unset;
+    margin-bottom: 23px;
+    padding: unset;
+    color: #FFF;
+    font-size: 22px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+}
+
+.about-project__line {
+    width: 100%;
+    height: 1px;
+    background-color: #DADADA;
 }
 
 .about-project__wrapper {
@@ -24,50 +50,6 @@
     color: #FFFFFF;
 }
 
-.about-project__timeline {
-    display: flex;
-    width: 100%;
-    height: 36px;
-}
-
-.about-project__timeline_stage_backend {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: unset;
-    padding: unset;
-    width: 20%;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-
-    color: #000000;
-    background: #3DDC84;
-}
-
-.about-project__timeline_stage_frontend {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: unset;
-    padding: unset;
-    width: 80%;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-
-    color: #FFFFFF;
-    background: #303030;
-}
-
 .about-project__text {
     margin-top: 26px;
     margin-bottom: unset;
@@ -80,6 +62,41 @@
     /* or 143% */
     color: #FFFFFF;
 }
+
+.about-project__timeline {
+    display: flex;
+    width: 100%;
+    height: 36px;
+}
+
+.about-project__duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: unset;
+    padding: unset;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.about-project__duration_stage_backend {
+    width: 20%;
+    color: #000000;
+    background: #3DDC84;
+}
+
+.about-project__duration_stage_frontend {
+    width: 80%;
+    color: #FFFFFF;
+    background: #303030;
+}
+
+
 
 .about-project__label {
     margin: unset;
@@ -140,15 +157,15 @@
         width: 100%;
     }
 
-    .about-project__timeline_stage_backend, .about-project__timeline_stage_frontend {
+    .about-project__duration {
         font-size: 11px;
     }
 
-    .about-project__timeline_stage_backend {
+    .about-project__duration_stage_backend {
         width: 35%;
     }
 
-    .about-project__timeline_stage_frontend {
+    .about-project__duration_stage_frontend {
         width: 65%;
     }
 

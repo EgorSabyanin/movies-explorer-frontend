@@ -13,7 +13,7 @@ import '../../blocks/form/__text/form__text.css'
 
 function Login() {
     return (
-        <section className="login">
+        <main className="login">
             <div className="login__icon">
                 <Logo />
             </div>
@@ -28,7 +28,7 @@ function Login() {
                 </fieldset>
                 <p className="login__text form__text">Ещё не зарегистрированы? <Link className="form__link" to="/signup">Регистрация</Link></p>
             </form>
-        </section>
+        </main>
     );
 }
 

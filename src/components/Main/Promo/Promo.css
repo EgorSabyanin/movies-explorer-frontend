@@ -6,6 +6,7 @@
     background-color: #073042;
     background-image: url('../../../images/practicum.svg');
     background-position: center;
+    background-position: center 80px;
     background-repeat: no-repeat;
 }
 
@@ -18,8 +19,9 @@
     font-size: 50px;
     font-family: Inter, sans-serif;
     line-height: 58px;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     font-weight: 400;
+    margin-top: -45px;
 }
 
 @media screen and (width < 1024px) {

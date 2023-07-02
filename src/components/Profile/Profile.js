@@ -80,7 +80,7 @@ function Profile() {
                     <button className="navigation__burger" ref={buttonOpenNavigation} onClick={openNavigation}></button>
                 </div>
             </Header>
-            <section className='profile'>
+            <main className='profile'>
                 <div className='page__wrapper'>
             <h2 className='profile__greeting'>Привет, { user.name}!</h2>
             <form
@@ -99,8 +99,9 @@ function Profile() {
                         placeholder='Имя'
                         value={user.name || ''}
                         minLength={2}
-                        maxLength={50}
+                        maxLength={30}
                         onChange={handleChange}
+                        required
                     />
                 </label>  
                 <hr className="profile__break-line" />
@@ -115,6 +116,7 @@ function Profile() {
                         placeholder='E-mail'
                         value={user.email || ''}
                         onChange={handleChange}
+                        required
                     />
                 </label>  
             </form>
@@ -123,7 +125,7 @@ function Profile() {
                 <button className="profile__button-logout" onClick={ handleLogout }>Выйти из аккаунта</button>
             </div>
             </div>
-            </section>
+            </main>
             </>
     )
 }

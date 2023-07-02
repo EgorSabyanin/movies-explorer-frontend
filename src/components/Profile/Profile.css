@@ -43,6 +43,10 @@
     border: none;
 }
 
+.profile__input:active, .profile__input:focus {
+    outline: #8B8B8B solid 1px;
+}
+
 .profile__break-line {
     margin-top: 16px;
     margin-bottom: 17px;

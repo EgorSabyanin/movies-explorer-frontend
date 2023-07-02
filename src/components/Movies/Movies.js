@@ -73,7 +73,7 @@ function Movies() {
                     <button className="navigation__burger" ref={buttonOpenNavigation} onClick={ openNavigation }></button>
                 </div>
             </Header>
-            <section className='movies'>
+            <main className='movies'>
                 <div className='page__wrapper'>
                     <SearchMovies />
                     {/* <Preloader /> */}
@@ -97,7 +97,7 @@ function Movies() {
                     </MoviesCardList>
                     <button className='movies__button-more'>Ещё</button>
                 </div>
-            </section>
+            </main>
             <Footer />
         </>
     );

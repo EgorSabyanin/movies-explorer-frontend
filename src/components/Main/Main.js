@@ -15,7 +15,7 @@ import Header from '../Header/Header';
 
 function Main() {
     return (
-        <>
+      <>
         <Header userClass='header_theme_main'>
           <div className='navigation__column'>
             <Logo />
@@ -25,13 +25,15 @@ function Main() {
             <Link to="/signin" className='navigation__button'>Войти</Link>
           </div>
         </Header>
-        <Promo />
-        <NavTab />
-        <AboutProject />
-        <Techs />
-        <AboutMe />
-        <Portfolio />
-        <Footer /> 
+        <main className="main">
+          <Promo />
+          <NavTab />
+          <AboutProject />
+          <Techs />
+          <AboutMe />
+          <Portfolio />
+          <Footer /> 
+        </main>
         </>
     )
 }

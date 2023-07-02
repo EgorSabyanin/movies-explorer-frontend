@@ -73,7 +73,7 @@ function SavedMovies() {
                     <button className="navigation__burger" ref={buttonOpenNavigation} onClick={ openNavigation }></button>
                 </div>
             </Header>
-             <section className='saved-movies'>
+             <main className='saved-movies'>
                 <div className='page__wrapper'>
                     <SearchMovies />
                     {/* <Preloader /> */}
@@ -83,7 +83,7 @@ function SavedMovies() {
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
                     </MoviesCardList>
                 </div>
-            </section>
+            </main>
             <Footer />
         </>
     );
