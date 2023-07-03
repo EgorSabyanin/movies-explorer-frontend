@@ -79,7 +79,7 @@ function SavedMovies() {
                     <MoviesList> 
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie } isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
-                        <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
+                        {/* <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } /> */}
                     </MoviesList>
             </main>
             <Footer />
