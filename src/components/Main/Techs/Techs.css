@@ -138,20 +138,40 @@
         height: 567px;
     }
 
+    .techs__container {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .techs__section {
+        padding-top: 90px;
+    }
+
     .techs__text {
         padding-top: 90px;
     }
 
     .techs__title {
-        margin-top: 80px;
+        margin-top: 74px;
     }
 
     .techs__subtitle {
-        margin-top: 22px;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        margin-top: 20px;
     }
 
     .techs__list {
         margin-top: 83px;
+    }
+
+    .techs__item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        line-height: normal;
+        letter-spacing: -0.48px;
     }
 }
 

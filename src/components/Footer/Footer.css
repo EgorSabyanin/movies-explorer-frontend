@@ -65,6 +65,14 @@
     border-top: 1px solid #424242;
 }
 
+@media screen and (width < 1024px) {
+    .footer {
+        max-width: 708px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
 @media screen and (width < 768px) {
     .footer__text {
         font-size: 12px;

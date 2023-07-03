@@ -70,10 +70,13 @@
 @media screen and (width < 1024px) {
     .portfolio {
         margin-top: 85px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 145px;
     }
 
     .portfolio__list {
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     .portfolio__text {

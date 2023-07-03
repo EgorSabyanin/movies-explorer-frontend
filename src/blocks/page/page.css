@@ -6,3 +6,10 @@
     background-color: #202020;
     position: relative;
 }
+
+
+@media screen and (width < 1024px) {
+    .page {
+        max-width: 768px;
+    }
+}

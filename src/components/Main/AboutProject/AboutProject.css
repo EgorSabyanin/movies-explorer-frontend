@@ -124,13 +124,36 @@
 
 @media screen and (width < 1024px) {
     .about-project {
-        height: 585px;
-        margin-bottom: 93px;
+        height: 495px;
+        margin-bottom: 0;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .about-project__section {
+        margin-top: 90px;
     }
 
     .about-project__text {
+        font-size: 12px;
+        line-height: 18px;
         margin-top: 22px;
         width: 320px;
+    }
+
+    .about-project__wrapper {
+        gap: 30px;
+        margin-bottom: 93px;
+    }
+
+    .about-project__duration_stage_backend,
+    .about-project__label_stage_backend {
+        width: 21%;
+    }
+
+    .about-project__duration_stage_frontend,
+    .about-project__label_stage_frontend {
+        width: 79%;
     }
 }
 

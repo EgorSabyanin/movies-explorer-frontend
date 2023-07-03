@@ -11,7 +11,7 @@ function Techs() {
                 <hr className="techs__line" />
             </div>
             <div className="techs__wrapper">
-                    <h2 className="techs__title">7 Технологий</h2>
+                    <h2 className="techs__title">7 технологий</h2>
                     <p className="techs__subtitle">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
                 </div>
                 <ul className="techs__list">
