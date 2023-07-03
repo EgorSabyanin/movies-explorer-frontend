@@ -1,6 +1,5 @@
 import person from '../../../images/person.png';
 import './AboutMe.css';
-import HeadSection from '../../HeadSection';
 
 function AboutMe() {
     return (

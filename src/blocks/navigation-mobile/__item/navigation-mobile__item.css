@@ -3,5 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 30px;
+}
+
+@media screen and (width < 768px) {
+    .navigation-mobile__item {
+        gap: 26px;
+    }
 }

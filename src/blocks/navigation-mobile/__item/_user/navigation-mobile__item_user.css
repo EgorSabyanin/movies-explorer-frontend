@@ -3,12 +3,12 @@
     justify-content: center;
     margin: unset;
     padding: unset;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
 }
 
 
 @media screen and (width < 768px) {
     .navigation-mobile__item_user {
-        margin-bottom: 46px;
+        margin-bottom: 144px;
     }
 }

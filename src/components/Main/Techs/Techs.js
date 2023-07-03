@@ -1,4 +1,3 @@
-import HeadSection from '../../HeadSection';
 import './Techs.css';
 
 function Techs() {
