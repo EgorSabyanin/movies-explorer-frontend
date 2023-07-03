@@ -38,7 +38,8 @@
 
 .movie-card__duration {
     margin: unset;
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-bottom: 13px;
     padding: unset;
     color: #8B8B8B;
     font-size: 11px;
@@ -83,4 +84,14 @@
     .movie-card__preview {
         height: 190px;
     }
+}
+
+@media screen and (width < 768px) {
+    .movie-card {
+        height: 235px;
+    }
+   
+    .movie-card__preview {
+        height: 168px;
+    } 
 }

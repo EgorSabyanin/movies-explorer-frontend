@@ -1,5 +1,7 @@
 .movies {
     margin-top: 70px;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
 .movies__button-more {
@@ -9,8 +11,8 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 91px;
-    margin-bottom: 168px;
+    margin-top: 80px;
+    margin-bottom: 160px;
     color: #FFF;
     font-size: 12px;
     font-family: Inter, sans-serif;
@@ -29,15 +31,30 @@
 }
 
 @media screen and (width < 1024px) {
+    .movies {
+        margin-top: 80px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
     .movies__button-more {
         margin-top: 80px;
     }
 }
 
 @media screen and (width < 768px) {
+    .movies {
+        margin: unset;
+        padding: unset;
+        max-width: 320px;
+        margin-top: 85px;
+    }
+
     .movies__button-more {
-        width: 100%;
-        margin-top: 80px;
-        margin-bottom: 80px;
+        width: calc(100% - 80px);
+        margin-right: 40px;
+        margin-left: 40px;
+        margin-top: 50px;
+        margin-bottom: 160px;
     }
 }

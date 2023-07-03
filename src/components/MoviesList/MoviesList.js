@@ -1,10 +1,10 @@
 import MovieCard from '../MovieCard/MovieCard';
-import './MoviesCardList.css';
+import './MoviesList.css';
 
 function MoviesCardList({ children }) {
     return (
         <>
-            <div className='movies-card__list'>
+            <div className='movies-list'>
                 { children }
             </div>
         </>

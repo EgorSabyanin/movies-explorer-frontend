@@ -4,7 +4,7 @@ import Logo from '../Logo';
 import userAccountIcon from '../../images/user_account.svg'
 
 import SearchMovies from '../SearchMovies/SearchMovies';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import MoviesList from '../MoviesList/MoviesList';
 import MovieCard from '../MovieCard/MovieCard';
 
 import { useRef } from 'react';
@@ -74,15 +74,13 @@ function SavedMovies() {
                 </div>
             </Header>
              <main className='saved-movies'>
-                <div className='page__wrapper'>
                     <SearchMovies />
                     {/* <Preloader /> */}
-                    <MoviesCardList> 
+                    <MoviesList> 
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie } isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
-                    </MoviesCardList>
-                </div>
+                    </MoviesList>
             </main>
             <Footer />
         </>

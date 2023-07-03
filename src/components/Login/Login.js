@@ -15,12 +15,12 @@ function Login() {
     return (
         <main className="login">
             <div className="login__icon">
-                <Link className="register__icon-link" to="/">
+                <Link className="login__icon-link" to="/">
                     <img src={logo} alt="Логотип проекта" />
                 </Link>
             </div>
             <h2 className="login__title">Рады видеть!</h2>
-            <form className="login__form">
+            <form className="form login__form">
                 <fieldset className='login__fieldset'>
                     <label className="form__label login__label" htmlFor="email">E-mail</label>
                     <input className="form__input login__input" type="email" placeholder="E-mail" id="email" name="email" required />

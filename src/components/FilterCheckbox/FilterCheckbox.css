@@ -76,6 +76,7 @@
 
 @media screen and (width < 1024px) {
   .filter-checkbox {
+    margin-top: -5px;
     justify-content: flex-start;
     flex-direction: row-reverse;
   }
@@ -83,6 +84,12 @@
 
 @media screen and (width < 768px) {
   .filter-checkbox {
+    margin-top: 8px;
     justify-content: center;
+  }
+
+  .filter-checkbox__text {
+    font-size: 11px;
+    line-height: 18px;
   }
 }

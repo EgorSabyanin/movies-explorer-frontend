@@ -50,6 +50,15 @@
 }
 
 @media screen and (width < 768px) {
+    .search-movies__form {
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
+    .search-movies__fieldset {
+        padding-bottom: 8px;
+    }
+
     .search-movies__input {
         font-size: 18px;
         width: 90%;

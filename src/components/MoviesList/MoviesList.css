@@ -1,4 +1,4 @@
-.movies-card__list {
+.movies-list {
     margin-top: 118px;
     display: grid;
     column-gap: 20px;
@@ -7,7 +7,8 @@
 }
 
 @media screen and (width < 1024px) {
-    .movies-card__list {
+    .movies-list {
+        margin-top: 130px;
         grid-template-columns: repeat(2, 340px);
         grid-auto-rows: 257px;
         column-gap: 30px;
@@ -16,9 +17,11 @@
 }
 
 @media screen and (width < 768px) {
-    .movies-card__list {
-        gap: 20px;
+    .movies-list {
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 0px;
         margin-top: 90px;
-        grid-template-columns: 300px;
+        grid-template-columns: 100%;
     }
 }

@@ -4,7 +4,7 @@ import Logo from '../Logo';
 import userAccountIcon from '../../images/user_account.svg'
 
 import SearchMovies from '../SearchMovies/SearchMovies';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import MoviesList from '../MoviesList/MoviesList';
 import MovieCard from '../MovieCard/MovieCard';
 
 import { Link } from "react-router-dom";
@@ -74,10 +74,9 @@ function Movies() {
                 </div>
             </Header>
             <main className='movies'>
-                <div className='page__wrapper'>
                     <SearchMovies />
                     {/* <Preloader /> */}
-                    <MoviesCardList> 
+                    <MoviesList> 
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie } isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
@@ -94,9 +93,8 @@ function Movies() {
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ false } />
                         <MovieCard title='33 слова о дизайне' duration='1ч42м' preview={ movie }  isSaved={ true } />
-                    </MoviesCardList>
+                    </MoviesList>
                     <button className='movies__button-more'>Ещё</button>
-                </div>
             </main>
             <Footer />
         </>
