@@ -10,6 +10,7 @@
 
 .error__title {
     margin: unset;
+    margin-top: -80px;
     padding: unset;
     color: #FFF;
     text-align: center;
@@ -44,8 +45,15 @@
     opacity: .7;
 }
 
+@media screen and (width < 1024px) {
+    .error__title {
+        margin-top: 330px;
+    }
+}
+
 @media screen and (width < 768px) {
     .error__title {
+        margin-top: 200px;
         font-size: 80px;
         line-height: normal;
     }
