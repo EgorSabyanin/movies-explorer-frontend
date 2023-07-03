@@ -1,8 +1,11 @@
 .register {
     width: 396px;
     margin: 0 auto;
-    margin-top: 70px;
     padding: unset;
+}
+
+.register__icon {
+    padding-top: 70px;
 }
 
 .register__title {
@@ -43,17 +46,26 @@
 }
 
 .register__error {
+    display: block;
+    margin: unset;
+    padding: unset;
     margin-top: 10px;
 }
 
 .register__text {
     margin: unset;
     padding: unset;
-    margin-top: 16px;
+    margin-top: 14px;
 }
 
 .register__icon {
     display: block;
+}
+
+@media screen and (width < 1024px) {
+    .register__icon {
+        padding-top: 230px;
+    }
 }
 
 @media screen and (width < 768px) {
@@ -61,12 +73,23 @@
         width: 260px;
     }
 
-    .register__submit {
-        margin-top: 157px;
-    }
-
     .register__icon {
         display: flex;
         justify-content: center;
+        padding-top: 55px;
+    }
+
+    .register__title {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .register__form {
+        margin-top: 80px;
+    }
+    
+
+    .register__submit {
+        margin-top: 157px;
     }
 }

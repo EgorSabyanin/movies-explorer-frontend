@@ -1,5 +1,5 @@
 import './Register.css';
-import Logo from '../Logo';
+import logo from '../../logo.svg'
 
 import { Link } from 'react-router-dom';
 
@@ -15,10 +15,12 @@ function Register() {
     return (
         <main className="register">
             <div className="register__icon">
-                <Logo />
+                <Link className="register__icon-link" to="/">
+                    <img src={logo} alt="Логотип проекта" />
+                </Link>
             </div>
             <h2 className="register__title">Добро пожаловать!</h2>
-            <form className="register__form">
+            <form className="form register__form">
                 <fieldset className='register__fieldset'>
                     <label className="form__label register__label" htmlFor="name">Имя</label>
                     <input className="form__input register__input" type="text" placeholder="Имя" id="name" name="name" required minLength="2" maxLength="30" />
