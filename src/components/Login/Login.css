@@ -1,14 +1,17 @@
 .login {
     width: 396px;
     margin: 0 auto;
-    margin-top: 70px;
     padding: unset;
+}
+
+.login__icon {
+    padding-top: 70px;
 }
 
 .login__title {
     margin: unset;
     padding: unset;
-    margin-top: 40px;
+    margin-top: 37px;
     color: #FFF;
     font-size: 24px;
     font-family: Inter, sans-serif;
@@ -56,9 +59,28 @@
     display: block;
 }
 
+@media screen and (width < 1024px) {
+    .login__icon {
+        padding-top: 230px;
+    }
+}
+
 @media screen and (width < 768px) {
     .login {
         width: 260px;
+    }
+
+    .login__title {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .login__form {
+        margin-top: 80px;
+    }
+
+    .login__icon {
+        padding-top: 55px
     }
 
     .login__submit {
@@ -68,5 +90,9 @@
     .login__icon {
         display: flex;
         justify-content: center;
+    }
+
+    .login__text {
+        margin-top: 12px;
     }
 }

@@ -1,5 +1,5 @@
 import './Login.css';
-import Logo from '../Logo';
+import logo from '../../logo.svg';
 
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,9 @@ function Login() {
     return (
         <main className="login">
             <div className="login__icon">
-                <Logo />
+                <Link className="register__icon-link" to="/">
+                    <img src={logo} alt="Логотип проекта" />
+                </Link>
             </div>
             <h2 className="login__title">Рады видеть!</h2>
             <form className="login__form">
