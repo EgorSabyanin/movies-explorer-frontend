@@ -16,3 +16,11 @@
 .navigation-mobile__close:hover {
     opacity: .8;
 }
+
+@media screen and (width < 768px) {
+    .navigation-mobile__close {
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 18px;
+    }
+}

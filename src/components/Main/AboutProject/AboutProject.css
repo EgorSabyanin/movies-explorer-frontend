@@ -1,7 +1,11 @@
 .about-project {
-    margin: 0 auto;
-    max-width: 1140px;
     height: 488px;
+    max-width: 1280px;
+}
+
+.about-project__container {
+    margin-left: 70px;
+    margin: 70px;
 }
 
 .about-project__section {
@@ -56,7 +60,7 @@
 .about-project__text {
     margin-top: 26px;
     margin-bottom: unset;
-    width: 550px;
+    max-width: 550px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -129,6 +133,10 @@
     .about-project {
         height: 495px;
         margin-bottom: 0;
+
+    }
+
+    .about-project__container {
         margin-left: 50px;
         margin-right: 50px;
     }
@@ -141,7 +149,7 @@
         font-size: 12px;
         line-height: 18px;
         margin-top: 22px;
-        width: 320px;
+        max-width: 320px;
     }
 
     .about-project__wrapper {
