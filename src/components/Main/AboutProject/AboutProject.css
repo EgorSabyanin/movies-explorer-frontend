@@ -23,6 +23,9 @@
 }
 
 .about-project__line {
+    border: none;
+    padding: unset;
+    margin: unset;
     width: 100%;
     height: 1px;
     background-color: #DADADA;
@@ -158,10 +161,27 @@
 }
 
 @media screen and (width < 768px) {
+    .about-project {
+        margin-left: 18px;
+        margin-right: 18px;
+        height: 641px;
+    }
+
+    .about-project__section {
+        margin-top: 70px;
+    }
+
+    .about-project__name {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        line-height: normal;
+        margin-bottom: 30px;
+    }
+
     .about-project__wrapper {
         flex-direction: column;
         margin-top: 60px;
-        margin-bottom: 60px;
+        margin-bottom: 62px;
         gap: 56px;
     }
 
@@ -177,6 +197,7 @@
     }
 
     .about-project__text {
+        margin-top: 10px;
         width: 100%;
     }
 

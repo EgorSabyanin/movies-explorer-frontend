@@ -40,9 +40,12 @@
 @media screen and (width < 768px) {
     .promo {
         height: 570px;
+        background-position: center 142px;
+        background-size: 248px 248px;
     }
 
     .promo__title {
+        margin-top: -40px;
         font-size: 31px;
         letter-spacing: -1.24px;
         line-height: 39px;

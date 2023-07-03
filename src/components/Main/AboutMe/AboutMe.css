@@ -29,6 +29,9 @@
 }
 
 .about-me__line {
+    padding: unset;
+    margin: unset;
+    border: none;
     width: 100%;
     height: 1px;
     background-color: #DADADA;
@@ -142,9 +145,25 @@
 
 
 @media screen and (width < 768px) {
+    .about-me {
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
+    .about-me__section {
+        padding-top: unset;
+    }
+
+    .about-me__caption {
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        margin-bottom: 29px;
+    }
+
     .about-me__wrapper {
         flex-direction: column-reverse;
-        gap: 40px;
+        gap: 35px;
         margin-top: 60px;
     }
 
@@ -154,7 +173,7 @@
     }
 
     .about-me__short-info {
-        margin-top: 20px;
+        margin-top: 18px;
         font-size: 11px;
         line-height: 16px;
     }
