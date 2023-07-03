@@ -1,7 +1,7 @@
 .navigation__list {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 23px;
     margin: unset;
     padding: unset;
     list-style-type: none;

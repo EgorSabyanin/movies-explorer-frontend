@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import './Profile.css';
 
 function Profile() {
-    const [user, setUser] = useState({ name: 'Егор', email: 'egor.sabyanin.dev@gmail.com' });
+    const [user, setUser] = useState({ name: 'Виталий', email: 'egor.sabyanin.dev@gmail.com' });
     
     function handleChange ({ target }) {
         const { name, value } = target;
