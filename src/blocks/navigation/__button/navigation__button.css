@@ -1,0 +1,29 @@
+.navigation__button {
+    margin: unset;
+    padding: unset;
+    margin-left: 30px;
+    padding: 8px 20px;
+    color: #000;
+    font-size: 12px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 3px;
+    background: #3DDC84;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: all 700;
+}
+
+.navigation__button:hover {
+    opacity: .8;
+}
+
+@media screen and (width < 768px) {
+    .navigation__button {
+        padding: 5px 12px;
+        font-size: 10px;
+        margin-left: 14px;
+    }
+}

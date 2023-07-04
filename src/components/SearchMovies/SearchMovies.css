@@ -1,0 +1,66 @@
+.search-movies {
+    margin-top: 70px;
+}
+
+.search-movies__input {
+    background: transparent;
+    padding: unset;
+    margin: unset;
+    border: none;
+    color: #FFF;
+    font-size: 28px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    width: 100%;
+}
+
+.search-movies__input:active, .search-movies__input:focus {
+    outline: #8B8B8B solid 1px;
+}
+
+.search-movies__input::placeholder {
+    color: #8B8B8B;
+} 
+
+.search-movies__fieldset {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    margin: unset;
+    padding: unset;
+    border-bottom: 1px solid #424242;
+    padding-bottom: 13px;
+}
+
+.search-movies__submit {
+    height: 34px;
+    width: 34px;
+    border: none;
+    border-radius: 50%;
+    background: url(../../images/search.svg);
+    background-color: #4285F4;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 700ms;
+}
+
+.search-movies__submit:hover {
+    opacity: .8;
+}
+
+@media screen and (width < 768px) {
+    .search-movies__form {
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
+    .search-movies__fieldset {
+        padding-bottom: 8px;
+    }
+
+    .search-movies__input {
+        font-size: 18px;
+        width: 90%;
+    }
+}

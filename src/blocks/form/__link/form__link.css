@@ -1,0 +1,18 @@
+.form__link {
+    color: #4285F4;
+    text-align: center;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    transition: all 700ms;
+    text-decoration: none;
+}
+
+.form__link:hover {
+    opacity: .8;
+}
+
+@media screen and (width < 768px) {
+    .form__link {
+        font-size: 12px;
+    }
+}

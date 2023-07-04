@@ -1,0 +1,26 @@
+.navigation-mobile__close {
+    margin: unset;
+    padding: unset;
+    align-self: flex-end;
+    margin-top: 16px;
+    margin-right: 16px;
+    padding: 22px;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    background-image: url(../../../images/cross_menu.svg);
+    cursor: pointer;
+    transition: all 700ms;
+}
+
+.navigation-mobile__close:hover {
+    opacity: .8;
+}
+
+@media screen and (width < 768px) {
+    .navigation-mobile__close {
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 18px;
+    }
+}

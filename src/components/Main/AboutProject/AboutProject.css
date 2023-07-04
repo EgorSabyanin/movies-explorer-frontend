@@ -1,0 +1,236 @@
+.about-project {
+    height: 488px;
+    max-width: 1280px;
+}
+
+.about-project__container {
+    margin-left: 70px;
+    margin: 70px;
+}
+
+.about-project__section {
+    margin: 0 auto;
+    margin-top: 110px;
+}
+
+.about-project__name {
+    margin: unset;
+    margin-bottom: 23px;
+    padding: unset;
+    color: #FFF;
+    font-size: 22px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+}
+
+.about-project__line {
+    border: none;
+    padding: unset;
+    margin: unset;
+    width: 100%;
+    height: 1px;
+    background-color: #DADADA;
+}
+
+.about-project__wrapper {
+    margin-top: 70px;
+    margin-bottom: 110px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.about-project__title {
+    margin-top: unset;
+    margin-bottom: unset;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+}
+
+.about-project__text {
+    margin-top: 26px;
+    margin-bottom: unset;
+    max-width: 550px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+    color: #FFFFFF;
+}
+
+.about-project__timeline {
+    display: flex;
+    width: 100%;
+    height: 36px;
+}
+
+.about-project__duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: unset;
+    padding: unset;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.about-project__duration_stage_backend {
+    width: 20%;
+    color: #000000;
+    background: #3DDC84;
+}
+
+.about-project__duration_stage_frontend {
+    width: 80%;
+    color: #FFFFFF;
+    background: #303030;
+}
+
+
+
+.about-project__label {
+    margin: unset;
+    padding: unset;
+    margin-top: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height, or 121% */
+
+    text-align: center;
+
+    color: #8B8B8B;
+}
+
+.about-project__label_stage_frontend {
+    width: 80%;
+}
+
+.about-project__label_stage_backend {
+    width: 20%;
+}
+
+@media screen and (width < 1024px) {
+    .about-project {
+        height: 495px;
+        margin-bottom: 0;
+
+    }
+
+    .about-project__container {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .about-project__section {
+        margin-top: 90px;
+    }
+
+    .about-project__text {
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 22px;
+        max-width: 320px;
+    }
+
+    .about-project__wrapper {
+        gap: 30px;
+        margin-bottom: 93px;
+    }
+
+    .about-project__duration_stage_backend,
+    .about-project__label_stage_backend {
+        width: 21%;
+    }
+
+    .about-project__duration_stage_frontend,
+    .about-project__label_stage_frontend {
+        width: 79%;
+    }
+}
+
+@media screen and (width < 768px) {
+    .about-project {
+        margin-left: 18px;
+        margin-right: 18px;
+        height: 641px;
+    }
+
+    .about-project__section {
+        margin-top: 70px;
+    }
+
+    .about-project__name {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        line-height: normal;
+        margin-bottom: 30px;
+    }
+
+    .about-project__wrapper {
+        flex-direction: column;
+        margin-top: 60px;
+        margin-bottom: 62px;
+        gap: 56px;
+    }
+
+    .about-project__title {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        font-weight: normal;
+    }
+
+    .about-project__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .about-project__text {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .about-project__duration {
+        font-size: 11px;
+    }
+
+    .about-project__duration_stage_backend {
+        width: 35%;
+    }
+
+    .about-project__duration_stage_frontend {
+        width: 65%;
+    }
+
+    .about-project__label {
+        margin-top: 10px;
+        font-size: 11px;
+    }
+
+    .about-project__label_stage_backend {
+        width: 35%;
+    }
+
+    .about-project__label_stage_frontend {
+        width: 65%;
+    }
+}

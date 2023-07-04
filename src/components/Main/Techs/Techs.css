@@ -1,0 +1,225 @@
+.techs {
+    max-width: 1280px;
+    background-color: #272727;
+    height: 625px;
+}
+
+.techs__container {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.techs__section {
+    margin: 0 auto;
+    padding-top: 110px;
+}
+
+.techs__name {
+    margin: unset;
+    margin-bottom: 23px;
+    padding: unset;
+    color: #FFF;
+    font-size: 22px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+}
+
+.techs__line {
+    border: none;
+    padding: unset;
+    margin: unset;
+    width: 100%;
+    height: 1px;
+    background-color: #DADADA;
+}
+
+.techs__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techs__title {
+    margin: unset;
+    padding: unset;
+    margin-top: 84px;
+    margin-bottom: unset;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    /* identical to box height, or 116% */
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+}
+
+.techs__text {
+    margin: unset;
+    padding: unset;
+    margin-bottom: 23px;
+    padding-top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+}
+
+.techs__subtitle {
+    margin-top: 26px;
+    margin-bottom: unset;
+
+    width: 460px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+}
+
+.techs__list {
+    margin: unset;
+    padding: unset;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style-type: none;
+}
+
+.techs__item {
+    padding: unset;
+    margin: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 60px;
+    background-color: #303030;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+}
+
+.techs__break-line {
+    padding: unset;
+    margin: unset;
+    color: #dadada;
+}
+
+@media screen and (width < 1024px) {
+    .techs {
+        height: 567px;
+    }
+
+    .techs__container {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .techs__section {
+        padding-top: 90px;
+    }
+
+    .techs__text {
+        padding-top: 90px;
+    }
+
+    .techs__title {
+        margin-top: 74px;
+    }
+
+    .techs__subtitle {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        margin-top: 20px;
+    }
+
+    .techs__list {
+        margin-top: 83px;
+    }
+
+    .techs__item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        line-height: normal;
+        letter-spacing: -0.48px;
+    }
+}
+
+@media screen and (width < 768px) {
+    .techs {
+        background: #202020;
+        min-height: 651px;
+    }
+
+    .techs__name {
+        margin-bottom: 30px;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: -0.72px;
+    }
+
+    .techs__section {
+        padding-top: unset;
+    }
+
+    .techs__container {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .techs__title {
+        margin-top: 50px;
+        font-size: 30px;
+        letter-spacing: -1.2px;
+    }
+
+    .techs__subtitle {
+        margin-top: 10px;
+        width: 100%;
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: -0.44px;
+    }
+
+    .techs__list {
+        margin-top: 50px;
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: repeat(2, 84px);
+        justify-content: center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,16 @@
+.navigation-mobile__link {
+    padding: unset;
+    margin: unset;
+    color: #FFF;
+    font-size: 18px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    transition: all 700ms;
+}
+
+.navigation-mobile__link:hover {
+    opacity: .7;
+}

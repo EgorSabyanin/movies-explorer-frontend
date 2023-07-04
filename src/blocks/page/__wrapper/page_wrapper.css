@@ -1,0 +1,16 @@
+/* .page__wrapper {
+    margin: 0 auto;
+    width: 1140px;
+}
+
+@media screen and (width < 1024px) {
+    .page__wrapper {
+        width: 708px;
+    }
+}
+
+@media screen and (width < 768px) {
+    .page__wrapper {
+        width: 300px;
+    }
+} */

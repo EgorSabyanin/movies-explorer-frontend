@@ -1,0 +1,16 @@
+.form__input {
+    padding: unset;
+    padding: 15px;
+    height: 16px;
+    width: calc(100% - 30px);
+    color: #FFF;
+    font-size: 13px;
+    font-family: Inter, sans-serif;
+    border-radius: 8px;
+    background: #2F2F2F;
+    border: none;
+}
+
+.form__input:active, .form__input:focus {
+    outline: #8B8B8B solid 1px;
+}
