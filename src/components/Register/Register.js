@@ -38,7 +38,11 @@ function Register() {
             Имя
           </label>
           <input
-            className='form__input register__input'
+            className={
+              errors.name
+                ? 'form__input form__input_error register__input'
+                : 'form__input register__input'
+            }
             type='text'
             placeholder='Имя'
             id='name'
@@ -55,7 +59,11 @@ function Register() {
             E-mail
           </label>
           <input
-            className='form__input register__input'
+            className={
+              errors.email
+                ? 'form__input form__input_error register__input'
+                : 'form__input register__input'
+            }
             pattern={EMAIL_PATTERN}
             type='email'
             placeholder='E-mail'
@@ -71,7 +79,11 @@ function Register() {
             Пароль
           </label>
           <input
-            className='form__input form__input_error register__input'
+            className={
+              errors.password
+                ? 'form__input form__input_error register__input'
+                : 'form__input register__input'
+            }
             type='password'
             placeholder='Пароль'
             id='password'
