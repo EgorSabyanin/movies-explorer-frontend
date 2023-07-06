@@ -1,9 +1,8 @@
 const mainApiSettings = {
-  // baseUrl: 'http://localhost:3000',
-  baseUrl: 'Свой вставить для диплома',
+  baseUrl: 'https://api.movies.egorsabyanin.nomoredomains.rocks',
   headers: {
     'Content-Type': 'application/json',
-  }
+  },
 };
 
 class MainApi {
@@ -12,12 +11,14 @@ class MainApi {
     this._headers = headers;
   }
 
-    /* Проверка ответа сервера */
-    _checkResponse(res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return res.json().then(error => `Возникла ошибка: ${Promise.reject(error.message)}`);
+  /* Проверка ответа сервера */
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return res
+      .json()
+      .then((error) => `Возникла ошибка: ${Promise.reject(error.message)}`);
   }
 
   /* Регистрация пользователя */
@@ -25,11 +26,10 @@ class MainApi {
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify(userData)
-    })
-      .then(res => {
-        return this._checkResponse(res)
-      })
+      body: JSON.stringify(userData),
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   /* Авторизация пользоваетеля */
@@ -38,83 +38,76 @@ class MainApi {
       method: 'POST',
       headers: this._headers,
       credentials: 'include',
-      body: JSON.stringify(userData)
-    })
-      .then(res => {
-        return this._checkResponse(res)
-      })
+      body: JSON.stringify(userData),
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
- /* Получение информации о текущем пользователе */
+  /* Получение информации о текущем пользователе */
   getMe() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-        headers: this.headers,
-        credentials: 'include'
-    })
-      .then(res => {
-        return this._checkResponse(res)
-      })
+      headers: this.headers,
+      credentials: 'include',
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
- /* Редактирование пользователя */
+  /* Редактирование пользователя */
   editUserData(userData) {
     return fetch(`${this._baseUrl}/users/me`, {
-        method: 'PATCH',
-        headers: this._headers,
-        body: JSON.stringify(userData),
-        credentials: 'include'
-      })
-        .then(res => {
-          return this._checkResponse(res)
-        })
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(userData),
+      credentials: 'include',
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   logoutUser() {
     return fetch(`${this._baseUrl}/signout`, {
       method: 'GET',
       credentials: 'include',
-    })
-      .then(res => {
-        return this._checkResponse(res)
-      })
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   /* Получение списка сохраненных фильмов */
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
-        method: 'GET',
-        headers: this._headers,
-        credentials: 'include'
-      })
-        .then(res => {
-          return this._checkResponse(res)
-        })
+      method: 'GET',
+      headers: this._headers,
+      credentials: 'include',
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   /* Сохранение фильма */
   saveMovie(movieData) {
     return fetch(`${this._baseUrl}/movies`, {
-        method: 'POST',
-        headers: this._headers,
-        body: JSON.stringify(movieData),
-        credentials: 'include'
-      })
-        .then(res => {
-          return this._checkResponse(res)
-        })
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(movieData),
+      credentials: 'include',
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 
   /* Удаление фильма */
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
-        method: 'DELETE',
-        headers: this._headers,
-        credentials: 'include'
-      })
-        .then(res => {
-          return this._checkResponse(res)
-        })
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: 'include',
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
   }
 }
 

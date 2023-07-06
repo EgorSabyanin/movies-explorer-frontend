@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 
+/* Подключение API  */
+import { moviesApi } from '../../utils/MoviesApi';
+
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Logo from '../Logo';
@@ -8,20 +11,6 @@ import userAccountIcon from '../../images/user_account.svg';
 
 import SearchMovies from '../SearchMovies/SearchMovies';
 import MoviesList from '../MoviesList/MoviesList';
-import MovieCard from '../MovieCard/MovieCard';
-
-import movie from '../../images/saved_movies/9.png';
-
-import Preloader from '../Preloader/Preloader';
-
-/* Подключение API  */
-import { moviesApi } from '../../utils/MoviesApi';
-
-/* Вспомогтальные функции */
-import {
-  getCorrectStringForDuration,
-  getCorrectPathForImage,
-} from '../../utils/utils';
 
 import './Movies.css';
 
@@ -51,15 +40,12 @@ function Movies() {
   function openNavigation() {
     buttonOpenNavigation.current.style.display = 'none';
     mobileNavigation.current.classList.add('navigation-mobile_active');
-    console.log(buttonOpenNavigation);
   }
 
   function closeNavigation() {
     mobileNavigation.current.classList.remove('navigation-mobile_active');
     buttonOpenNavigation.current.style.display = 'block';
   }
-
-  console.log(movieCards);
 
   return (
     <>
@@ -127,117 +113,14 @@ function Movies() {
       </Header>
       <main className='movies'>
         <SearchMovies />
-        {isLoading && <Preloader />}
-        <MoviesList>
-          {movieCards.map((movieCard) => {
-            return (
-              <MovieCard
-                key={movieCard.id}
-                title={movieCard.nameRU}
-                duration={getCorrectStringForDuration(movieCard.duration)}
-                preview={getCorrectPathForImage(movieCard.image.url)}
-                isSaved={false}
-              />
-            );
-          })}
+        <MoviesList cards={movieCards} isLoading={isLoading}>
           {/* <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={false}
-          />
-          <MovieCard
             title='33 слова о дизайне'
             duration='1ч42м'
             preview={movie}
             isSaved={true}
           /> */}
         </MoviesList>
-        <button className='movies__button-more'>Ещё</button>
       </main>
       <Footer />
     </>

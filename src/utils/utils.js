@@ -1,4 +1,4 @@
-import { MOVIE_BASE_URL } from '../constants/constant';
+import { MOVIE_BASE_URL } from '../constants/constants';
 
 export function getCorrectStringForDuration(duration) {
   const hours = Math.floor(duration / 60);
