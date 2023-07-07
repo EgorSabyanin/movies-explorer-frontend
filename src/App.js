@@ -16,11 +16,10 @@ import { mainApi } from './utils/MainApi';
  * Подключение контекста
  */
 
-import { CurrentUserContext } from './context/CurrentUserContext';
+import CurrentUserContext from './context/CurrentUserContext';
 
 function App() {
   const navigate = useNavigate();
-
   const [isLogged, setIsLogged] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -51,6 +50,8 @@ function App() {
 
   /**  Выход из профиля */
   function handleSignOut() {
+    setIsLogged(false);
+    setCurrentUser({});
     localStorage.removeItem('jwt');
     navigate('/', { replace: true });
   }
@@ -67,7 +68,7 @@ function App() {
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route
             path='/profile'
-            element={<Profile onLogout={handleSignOut} />}
+            element={<Profile onLogout={handleSignOut} isLogged={isLogged} />}
           />
           <Route
             path='/signin'
@@ -76,7 +77,11 @@ function App() {
           <Route
             path='/signup'
             element={
-              <Register onSubmit={handleSignUp} setLogged={setIsLogged} />
+              <Register
+                onSubmit={handleSignUp}
+                setLogged={setIsLogged}
+                setCurrentUser={setCurrentUser}
+              />
             }
           />
           <Route path='*' element={<Navigate to='/404' replace />} />

@@ -16,7 +16,7 @@ import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__link/form__link.css';
 import '../../blocks/form/__text/form__text.css';
 
-function Register({ onSubmit, setLogged }) {
+function Register({ onSubmit, setLogged, setCurrentUser }) {
   const [responseError, setResponseError] = useState(false);
   const { values, errors, handleChange, isFormValid } = useForm();
 
@@ -32,10 +32,11 @@ function Register({ onSubmit, setLogged }) {
 
     onSubmit(userData)
       .then((res) => {
+        const { email, password } = userData;
+        setCurrentUser(userData);
         setResponseError(false);
-        delete userData.name;
         mainApi
-          .signin(userData)
+          .signin({ email, password })
           .then((res) => {
             setLogged(true);
             localStorage.setItem('jwt', res.token);

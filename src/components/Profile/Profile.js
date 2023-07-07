@@ -1,29 +1,50 @@
-import { useState, useRef } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { EMAIL_PATTERN } from '../../constants/constants';
+
+import CurrentUserContext from '../../context/CurrentUserContext';
+import useForm from '../../hooks/useForm';
 import Logo from '../Logo';
 import userAccountIcon from '../../images/user_account.svg';
 import Header from '../Header/Header';
+
+import '../../blocks/form/__error/form__error.css';
+import '../../blocks/form/__submit/form__submit.css';
+
 import './Profile.css';
 
-function Profile() {
-  const [user, setUser] = useState({
-    name: 'Виталий',
-    email: 'egor.sabyanin.dev@gmail.com',
-  });
+function Profile({ onLogout, isLogged }) {
+  const currentUser = useContext(CurrentUserContext);
 
-  function handleChange({ target }) {
-    const { name, value } = target;
-    setUser({ ...user, [name]: value });
-  }
+  console.log(currentUser);
+
+  const [isCurrentValues, setIsCurrentValues] = useState(false);
+  const { values, errors, handleChange, isFormValid, resetForm } = useForm();
+
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser);
+    }
+  }, [currentUser, resetForm]);
+
+  useEffect(() => {
+    if (
+      currentUser.name === values.name &&
+      currentUser.email === values.email
+    ) {
+      setIsCurrentValues(true);
+    } else {
+      setIsCurrentValues(false);
+    }
+  }, [values]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log('Данные пользователя отправлены на сервер');
   }
 
   function handleLogout() {
-    console.log('Вы вышли из аккаунта');
+    onLogout();
   }
 
   const buttonOpenNavigation = useRef(null);
@@ -106,7 +127,7 @@ function Profile() {
       </Header>
       <main className='profile'>
         <div className='page__wrapper'>
-          <h2 className='profile__greeting'>Привет, {user.name}!</h2>
+          <h2 className='profile__greeting'>Привет, {values.name}!</h2>
           <form
             name='profile__form'
             className='profile__form'
@@ -119,13 +140,14 @@ function Profile() {
                 name='name'
                 className='profile__input'
                 placeholder='Имя'
-                value={user.name || ''}
+                value={values.name || ''}
                 minLength={2}
                 maxLength={30}
                 onChange={handleChange}
                 required
               />
             </label>
+            {errors.name && <span className='form__error'>{errors.name}</span>}
             <hr className='profile__break-line' />
             <label className='profile__input-wrapper'>
               <span className='profile__input-label'>E-mail</span>
@@ -134,24 +156,42 @@ function Profile() {
                 name='email'
                 className='profile__input'
                 placeholder='E-mail'
-                value={user.email || ''}
+                value={values.email || ''}
                 onChange={handleChange}
+                pattern={EMAIL_PATTERN}
                 required
               />
             </label>
+            {errors.email && (
+              <span className='form__error'>{errors.email}</span>
+            )}
           </form>
           <div className='profile__buttons'>
-            <button
-              className='profile__button-edit'
-              form='profile__form'
-              type='submit'
-              onClick={handleSubmit}
-            >
-              Редактировать
-            </button>
-            <button className='profile__button-logout' onClick={handleLogout}>
-              Выйти из аккаунта
-            </button>
+            {isCurrentValues ? (
+              <>
+                <button
+                  className='profile__button-edit'
+                  form='profile__form'
+                  type='submit'
+                  onClick={handleSubmit}
+                >
+                  Редактировать
+                </button>
+                <button
+                  className='profile__button-logout'
+                  onClick={handleLogout}
+                >
+                  Выйти из аккаунта
+                </button>
+              </>
+            ) : (
+              <button
+                className='form__submit profile__submit'
+                disabled={!isFormValid}
+              >
+                Сохранить
+              </button>
+            )}
           </div>
         </div>
       </main>

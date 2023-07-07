@@ -14,16 +14,13 @@ import '../../blocks/form/__submit/form__submit.css';
 import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__link/form__link.css';
 import '../../blocks/form/__text/form__text.css';
+import { mainApi } from '../../utils/MainApi';
 
 function Login({ onSubmit, setLogged }) {
   const [responseError, setResponseError] = useState(false);
   const { values, errors, handleChange, isFormValid } = useForm();
 
   const navigate = useNavigate();
-  /**
-   * Если ответ на запрос успешен, пользователь сразу авторизуется и будет перенаправлен на страницу «Фильмы».
-   * Если в ответе на этот запрос сервер возвращает ошибку, сообщение о ней должно располагаться над кнопкой «Зарегистрироваться».
-   */
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -69,6 +66,7 @@ function Login({ onSubmit, setLogged }) {
             id='email'
             name='email'
             required
+            pattern={EMAIL_PATTERN}
             onChange={handleChange}
           />
           {errors.email && (
