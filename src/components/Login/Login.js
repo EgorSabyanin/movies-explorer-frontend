@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import './Login.css';
 import logo from '../../logo.svg';
@@ -14,14 +15,36 @@ import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__link/form__link.css';
 import '../../blocks/form/__text/form__text.css';
 
-function Login() {
+function Login({ onSubmit, setLogged }) {
+  const [responseError, setResponseError] = useState(false);
   const { values, errors, handleChange, isFormValid } = useForm();
 
-  function handleSubmit() {
-    console.log(values.name);
-    console.log(values.email);
-    console.log(values.password);
+  const navigate = useNavigate();
+  /**
+   * Если ответ на запрос успешен, пользователь сразу авторизуется и будет перенаправлен на страницу «Фильмы».
+   * Если в ответе на этот запрос сервер возвращает ошибку, сообщение о ней должно располагаться над кнопкой «Зарегистрироваться».
+   */
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const userData = {
+      email: values.email,
+      password: values.password,
+    };
+
+    onSubmit(userData)
+      .then((res) => {
+        setLogged(true);
+        setResponseError(false);
+        localStorage.setItem('jwt', res.token);
+        navigate('/movies', { replace: true });
+      })
+      .catch((error) => {
+        setResponseError(error);
+      });
   }
+
   return (
     <main className='login'>
       <div className='login__icon'>
@@ -70,6 +93,9 @@ function Login() {
           {errors.password && (
             <span className='form__error login__error'>{errors.password}</span>
           )}
+          {responseError && (
+            <span className='form__error login__error'>{responseError}</span>
+          )}
           <button
             className='form__submit login__submit'
             type='submit'
@@ -78,13 +104,13 @@ function Login() {
             Войти
           </button>
         </fieldset>
-        <p className='login__text form__text'>
-          Ещё не зарегистрированы?{' '}
-          <Link className='form__link' to='/signup'>
-            Регистрация
-          </Link>
-        </p>
       </form>
+      <p className='login__text form__text'>
+        Ещё не зарегистрированы?{' '}
+        <Link className='form__link' to='/signup'>
+          Регистрация
+        </Link>
+      </p>
     </main>
   );
 }

@@ -14,7 +14,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './Movies.css';
 
-function Movies() {
+function Movies({ isLogged }) {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
 
@@ -32,6 +32,8 @@ function Movies() {
         setIsLoading(false);
       });
   }, []);
+
+  console.log(isLogged);
 
   const buttonOpenNavigation = useRef(null);
   const mobileNavigation = useRef(null);

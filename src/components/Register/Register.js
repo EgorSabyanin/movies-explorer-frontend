@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { EMAIL_PATTERN } from '../../constants/constants';
 import useForm from '../../hooks/useForm';
@@ -16,13 +16,38 @@ import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__link/form__link.css';
 import '../../blocks/form/__text/form__text.css';
 
-function Register() {
+function Register({ onSubmit, setLogged }) {
+  const [responseError, setResponseError] = useState(false);
   const { values, errors, handleChange, isFormValid } = useForm();
 
-  function handleSubmit() {
-    console.log(values.name);
-    console.log(values.email);
-    console.log(values.password);
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const userData = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    onSubmit(userData)
+      .then((res) => {
+        setResponseError(false);
+        delete userData.name;
+        mainApi
+          .signin(userData)
+          .then((res) => {
+            setLogged(true);
+            localStorage.setItem('jwt', res.token);
+            navigate('/movies');
+          })
+          .catch((error) => {
+            setResponseError(error);
+          });
+      })
+      .catch((error) => {
+        setResponseError(error);
+      });
   }
   return (
     <main className='register'>
@@ -96,6 +121,9 @@ function Register() {
               {errors.password}
             </span>
           )}
+          {responseError && (
+            <span className='form__error register__error'>{responseError}</span>
+          )}
           <button
             className='form__submit register__submit'
             type='submit'
@@ -104,13 +132,13 @@ function Register() {
             Зарегистрироваться
           </button>
         </fieldset>
-        <p className='register__text form__text'>
-          Уже зарегистированы?{' '}
-          <Link className='form__link' to='/signin'>
-            Войти
-          </Link>
-        </p>
       </form>
+      <p className='register__text form__text'>
+        Уже зарегистированы?{' '}
+        <Link className='form__link' to='/signin'>
+          Войти
+        </Link>
+      </p>
     </main>
   );
 }

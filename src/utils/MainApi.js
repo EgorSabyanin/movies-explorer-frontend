@@ -4,7 +4,6 @@ const mainApiSettings = {
     'Content-Type': 'application/json',
   },
 };
-
 class MainApi {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -16,9 +15,7 @@ class MainApi {
     if (res.ok) {
       return res.json();
     }
-    return res
-      .json()
-      .then((error) => `Возникла ошибка: ${Promise.reject(error.message)}`);
+    return res.json().then((error) => Promise.reject(error.message));
   }
 
   /* Регистрация пользователя */
