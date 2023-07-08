@@ -99,6 +99,12 @@
   width: 100%;
 }
 
+.profile__submit_error {
+  cursor: not-allowed;
+  background: #f8f8f8;
+  color: #c2c2c2;
+}
+
 @media screen and (width < 1024px) {
   .profile__greeting {
     margin-top: 235px;

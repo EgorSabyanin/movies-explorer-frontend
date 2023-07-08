@@ -14,7 +14,7 @@ import '../../blocks/form/__submit/form__submit.css';
 
 import './Profile.css';
 
-function Profile({ onLogout, isLogged, onEditProfile, setCurrentUser }) {
+function Profile({ onLogout, onEditProfile, setCurrentUser }) {
   const currentUser = useContext(CurrentUserContext);
   const [isCurrentValues, setIsCurrentValues] = useState(false);
   const { values, errors, handleChange, isFormValid, resetForm } = useForm();
@@ -220,8 +220,12 @@ function Profile({ onLogout, isLogged, onEditProfile, setCurrentUser }) {
                   <span className='form__error'>{responseError}</span>
                 )}
                 <button
-                  className='form__submit profile__submit'
-                  disabled={!isFormValid}
+                  className={
+                    responseError
+                      ? 'form__submit profile__submit profile__submit_error'
+                      : 'form__submit profile__submit'
+                  }
+                  disabled={!isFormValid || responseError}
                   type='submit'
                   onClick={handleSubmit}
                 >
