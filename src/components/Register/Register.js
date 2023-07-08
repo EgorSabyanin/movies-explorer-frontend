@@ -39,6 +39,13 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
           .signin({ email, password })
           .then((res) => {
             setLogged(true);
+            localStorage.setItem(
+              'currentUser',
+              JSON.stringify({
+                name: res.name,
+                email: res.email,
+              })
+            );
             localStorage.setItem('jwt', res.token);
             navigate('/movies');
           })

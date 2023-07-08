@@ -16,7 +16,7 @@ import '../../blocks/form/__link/form__link.css';
 import '../../blocks/form/__text/form__text.css';
 import { mainApi } from '../../utils/MainApi';
 
-function Login({ onSubmit, setLogged }) {
+function Login({ onSubmit, setLogged, setCurrentUser }) {
   const [responseError, setResponseError] = useState(false);
   const { values, errors, handleChange, isFormValid } = useForm();
 
@@ -35,10 +35,26 @@ function Login({ onSubmit, setLogged }) {
         setLogged(true);
         setResponseError(false);
         localStorage.setItem('jwt', res.token);
-        navigate('/movies', { replace: true });
       })
       .catch((error) => {
         setResponseError(error);
+      });
+
+    mainApi
+      .getMe()
+      .then((res) => {
+        localStorage.setItem(
+          'currentUser',
+          JSON.stringify({
+            name: res.name,
+            email: res.email,
+          })
+        );
+        setCurrentUser({ name: res.name, email: res.email });
+        navigate('/movies', { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 

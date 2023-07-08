@@ -14,13 +14,12 @@ import '../../blocks/form/__submit/form__submit.css';
 
 import './Profile.css';
 
-function Profile({ onLogout, isLogged }) {
+function Profile({ onLogout, isLogged, onEditProfile, setCurrentUser }) {
   const currentUser = useContext(CurrentUserContext);
-
-  console.log(currentUser);
-
   const [isCurrentValues, setIsCurrentValues] = useState(false);
   const { values, errors, handleChange, isFormValid, resetForm } = useForm();
+
+  const [responseError, setResponseError] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -39,8 +38,36 @@ function Profile({ onLogout, isLogged }) {
     }
   }, [values]);
 
+  const userNameRef = useRef(null);
+  const userEmailRef = useRef(null);
+
+  function openEditProfile() {
+    userNameRef.current.disabled = false;
+    userEmailRef.current.disabled = false;
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    const userData = {
+      name: values.name,
+      email: values.email,
+    };
+
+    onEditProfile(userData)
+      .then((res) => {
+        localStorage.setItem(
+          'currentUser',
+          JSON.stringify({
+            name: res.name,
+            email: res.email,
+          })
+        );
+        setCurrentUser({ name: res.name, email: res.email });
+      })
+      .catch((error) => {
+        setResponseError(error);
+      });
   }
 
   function handleLogout() {
@@ -145,6 +172,8 @@ function Profile({ onLogout, isLogged }) {
                 maxLength={30}
                 onChange={handleChange}
                 required
+                disabled={true}
+                ref={userNameRef}
               />
             </label>
             {errors.name && <span className='form__error'>{errors.name}</span>}
@@ -160,6 +189,8 @@ function Profile({ onLogout, isLogged }) {
                 onChange={handleChange}
                 pattern={EMAIL_PATTERN}
                 required
+                disabled={true}
+                ref={userEmailRef}
               />
             </label>
             {errors.email && (
@@ -172,8 +203,7 @@ function Profile({ onLogout, isLogged }) {
                 <button
                   className='profile__button-edit'
                   form='profile__form'
-                  type='submit'
-                  onClick={handleSubmit}
+                  onClick={openEditProfile}
                 >
                   Редактировать
                 </button>
@@ -185,12 +215,19 @@ function Profile({ onLogout, isLogged }) {
                 </button>
               </>
             ) : (
-              <button
-                className='form__submit profile__submit'
-                disabled={!isFormValid}
-              >
-                Сохранить
-              </button>
+              <>
+                {responseError && (
+                  <span className='form__error'>{responseError}</span>
+                )}
+                <button
+                  className='form__submit profile__submit'
+                  disabled={!isFormValid}
+                  type='submit'
+                  onClick={handleSubmit}
+                >
+                  Сохранить
+                </button>
+              </>
             )}
           </div>
         </div>

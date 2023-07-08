@@ -44,6 +44,10 @@
   border: none;
 }
 
+.profile__input:disabled {
+  cursor: not-allowed;
+}
+
 .profile__input:active,
 .profile__input:focus {
   outline: #8b8b8b solid 1px;

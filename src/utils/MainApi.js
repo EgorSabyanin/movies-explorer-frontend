@@ -45,7 +45,11 @@ class MainApi {
   getMe() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: this.headers,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       credentials: 'include',
     }).then((res) => {
       return this._checkResponse(res);
@@ -56,7 +60,11 @@ class MainApi {
   editUserData(userData) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify(userData),
       credentials: 'include',
     }).then((res) => {

@@ -30,11 +30,10 @@ function App() {
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
-      // auth.getUser(jwt).then((res) => {
-      //   setLoggedIn(true);
-      //   setUserEmail(res.data.email);
-      //   navigate('/', { replace: true });
-      // });
+      mainApi.getMe().then((res) => {
+        setIsLogged(true);
+        setCurrentUser({ name: res.name, email: res.email });
+      });
     }
   }
 
@@ -53,12 +52,19 @@ function App() {
     setIsLogged(false);
     setCurrentUser({});
     localStorage.removeItem('jwt');
+    localStorage.removeItem('currentUser');
     navigate('/', { replace: true });
+  }
+
+  /** Редактирование учётных данных пользователя */
+  function editProfile(userData) {
+    return mainApi.editUserData(userData);
   }
 
   useEffect(() => {
     tokenCheck();
   }, []);
+
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
@@ -68,11 +74,24 @@ function App() {
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route
             path='/profile'
-            element={<Profile onLogout={handleSignOut} isLogged={isLogged} />}
+            element={
+              <Profile
+                onLogout={handleSignOut}
+                isLogged={isLogged}
+                onEditProfile={editProfile}
+                setCurrentUser={setCurrentUser}
+              />
+            }
           />
           <Route
             path='/signin'
-            element={<Login onSubmit={handleSignIn} setLogged={setIsLogged} />}
+            element={
+              <Login
+                onSubmit={handleSignIn}
+                setLogged={setIsLogged}
+                setCurrentUser={setCurrentUser}
+              />
+            }
           />
           <Route
             path='/signup'
