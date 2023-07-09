@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 
 /* Подключение API  */
 import { moviesApi } from '../../utils/MoviesApi';
+import { findMoviesByQuery, findShortMovies } from '../../utils/findMovies';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -17,6 +18,19 @@ import './Movies.css';
 function Movies() {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
+
+  const [initialMovies, setInitialMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [isShortMovies, setIsShortMovies] = useState(false);
+
+  const handleFilterMovies = (movies, query, short) => {
+    const moviesList = findMoviesByQuery(movies, query, short);
+    setInitialMovies(moviesList);
+    setFilteredMovies(short ? findShortMovies(moviesList) : moviesList);
+    localStorage.setItem('movies', JSON.stringify(moviesList));
+    localStorage.setItem('allMovies', JSON.stringify(movies));
+    localStorage.setItem('shorts', JSON.stringify(short));
+  };
 
   useEffect(() => {
     setIsLoading(true);

@@ -87,7 +87,7 @@ function App() {
       {isTokenChecked ? (
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
-            <Route path='/' element={<Main />} />
+            <Route path='/' element={<Main isLogged={isLogged} />} />
             <Route
               path='/movies'
               element={
@@ -96,7 +96,6 @@ function App() {
                 </ProtectedRouteElement>
               }
             />
-            {/* <Route path='/movies' element={<Movies isLogged={isLogged} />} /> */}
             <Route
               path='/saved-movies'
               element={

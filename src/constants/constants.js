@@ -21,3 +21,5 @@ export const MOBILE_DEVICE = {
 };
 
 export const EMAIL_PATTERN = '[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\\.{1,1}[a-z]{2,}';
+
+export const SHORT_MOVIES = 40;
