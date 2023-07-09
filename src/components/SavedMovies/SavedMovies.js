@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -11,7 +11,40 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './SavedMovies.css';
 
+import {
+  filterMoviesByQuery,
+  filterMoviesByDuration,
+} from '../../utils/filterMovies';
+
 function SavedMovies({ savedMovies, onUnsave }) {
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+  const [isShortMovies, setIsShortMovies] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const onSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const handleShortMovies = () => {
+    setIsShortMovies(!isShortMovies);
+  };
+
+  useEffect(() => {
+    const moviesList = filterMoviesByQuery(savedMovies, searchQuery);
+    setFilteredMovies(
+      isShortMovies ? filterMoviesByDuration(moviesList) : moviesList
+    );
+  }, [savedMovies, isShortMovies, searchQuery]);
+
+  useEffect(() => {
+    if (filteredMovies.length === 0) {
+      setIsNotFound(true);
+    } else {
+      setIsNotFound(false);
+    }
+  }, [filteredMovies]);
+
   const buttonOpenNavigation = useRef(null);
   const mobileNavigation = useRef(null);
   const buttonCloseNavigation = useRef(null);
@@ -90,8 +123,17 @@ function SavedMovies({ savedMovies, onUnsave }) {
         </div>
       </Header>
       <main className='saved-movies'>
-        <SearchMovies />
-        <MoviesList onUnsave={onUnsave} />
+        <SearchMovies
+          onSearch={onSearch}
+          onCheckbox={handleShortMovies}
+          isShortMovies={isShortMovies}
+        />
+        <MoviesList
+          isNotFound={isNotFound}
+          onUnsave={onUnsave}
+          cards={filteredMovies}
+          savedMovies={savedMovies}
+        />
       </main>
       <Footer />
     </>

@@ -29,10 +29,12 @@ function App() {
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState(false);
   const [currentUser, setCurrentUser] = useState({ name: '', email: '' });
+  const [isLoadedSavedMovies, setLoadedIsSavedMovies] = useState(false);
   const [isTokenChecked, setIsTokenChecked] = useState(false);
-  const [isSavedMovies, setIsSavedMovies] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [test, setTest] = useState([]);
 
   useEffect(() => {
     tokenCheck();
@@ -125,31 +127,22 @@ function App() {
   /** Получение коллекции сохраненных фильмов */
   useEffect(() => {
     if (isLogged) {
-      setIsLoading(true);
       Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
         .then(([currentUserInfo, moviesData]) => {
           console.log(moviesData);
+          setSavedMovies(moviesData);
           setCurrentUser(currentUserInfo);
-          setSavedMovies(
-            moviesData.filter((x) => x.owner === currentUser._id).reverse()
-          );
-          console.log(savedMovies);
         })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-          setIsSavedMovies(true);
+        .catch((error) => {
+          console.log(error);
         });
-    } else {
-      setIsSavedMovies(true);
     }
   }, [isLogged]);
 
+  console.log('it => ', savedMovies);
   return (
     <>
-      {isTokenChecked && isSavedMovies ? (
+      {isTokenChecked ? (
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
             <Route path='/' element={<Main isLogged={isLogged} />} />

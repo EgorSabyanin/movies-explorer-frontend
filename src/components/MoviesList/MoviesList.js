@@ -17,7 +17,6 @@ import {
   TABLET_DEVICE,
   MOBILE_DEVICE,
 } from '../../constants/constants';
-import SavedMovies from '../SavedMovies/SavedMovies';
 
 function MoviesCardList({
   savedMovies,
@@ -29,7 +28,6 @@ function MoviesCardList({
   onSave,
   onUnsave,
 }) {
-  console.log('From MoviesList = ', savedMovies);
   const location = useLocation();
 
   const [visibleMovies, setVisibleMovies] = useState(0);
