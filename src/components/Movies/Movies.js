@@ -18,7 +18,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './Movies.css';
 
-function Movies({ onSave }) {
+function Movies({ onSave, savedMovies }) {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
 
@@ -213,18 +213,12 @@ function Movies({ onSave }) {
         <MoviesList
           isLoading={isLoading}
           cards={filteredMovies}
+          savedMovies={savedMovies}
           isSavedMovies={false}
           isNotFound={isNotFound}
           isRequestError={isRequestError}
           onSave={onSave}
-        >
-          {/* <MovieCard
-            title='33 слова о дизайне'
-            duration='1ч42м'
-            preview={movie}
-            isSaved={true}
-          /> */}
-        </MoviesList>
+        ></MoviesList>
       </main>
       <Footer />
     </>

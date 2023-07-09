@@ -17,6 +17,7 @@ import {
   TABLET_DEVICE,
   MOBILE_DEVICE,
 } from '../../constants/constants';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function MoviesCardList({
   savedMovies,
@@ -28,6 +29,7 @@ function MoviesCardList({
   onSave,
   onUnsave,
 }) {
+  console.log('From MoviesList = ', savedMovies);
   const location = useLocation();
 
   const [visibleMovies, setVisibleMovies] = useState(0);
@@ -113,10 +115,13 @@ function MoviesCardList({
                   {cards.slice(0, visibleMovies).map((card) => {
                     return (
                       <MovieCard
-                        key={card.id}
+                        key={isSavedMovies ? card._id : card.id}
+                        cards={cards}
                         card={card}
-                        isSaved={true}
+                        saved={getSavedCard(savedMovies, card)}
                         onSave={onSave}
+                        isSavedMovies={isSavedMovies}
+                        savedMovies={savedMovies}
                       />
                     );
                   })}

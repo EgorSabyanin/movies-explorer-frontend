@@ -28,33 +28,14 @@ import CurrentUserContext from '../../context/CurrentUserContext';
 function App() {
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ name: '', email: '' });
   const [isTokenChecked, setIsTokenChecked] = useState(false);
+  const [isSavedMovies, setIsSavedMovies] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     tokenCheck();
-  }, [isLogged]);
-
-  /** Получение коллекции сохраненных фильмов */
-  useEffect(() => {
-    if (isLogged) {
-      setIsLoading(true);
-      Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
-        .then(([currentUserInfo, moviesData]) => {
-          setCurrentUser(currentUserInfo);
-          setSavedMovies(
-            moviesData.filter((x) => x.owner === currentUser._id).reverse()
-          );
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
   }, [isLogged]);
 
   /**
@@ -107,19 +88,17 @@ function App() {
   function handleSave(movie) {
     mainApi
       .saveMovie({
-        movieData: {
-          country: movie.country,
-          director: movie.director,
-          duration: movie.duration,
-          year: movie.year,
-          description: movie.description,
-          image: `${MOVIE_BASE_URL}${movie.image.url}`,
-          trailerLink: movie.trailerLink,
-          nameRU: movie.nameRU,
-          nameEN: movie.nameEN,
-          thumbnail: `${MOVIE_BASE_URL}${movie.image.url}`,
-          movieId: movie.id,
-        },
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `${MOVIE_BASE_URL}${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+        thumbnail: `${MOVIE_BASE_URL}${movie.image.url}`,
+        movieId: movie.id,
       })
       .then((savedMovie) => {
         setSavedMovies([savedMovie, ...savedMovies]);
@@ -143,9 +122,34 @@ function App() {
       });
   }
 
+  /** Получение коллекции сохраненных фильмов */
+  useEffect(() => {
+    if (isLogged) {
+      setIsLoading(true);
+      Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
+        .then(([currentUserInfo, moviesData]) => {
+          console.log(moviesData);
+          setCurrentUser(currentUserInfo);
+          setSavedMovies(
+            moviesData.filter((x) => x.owner === currentUser._id).reverse()
+          );
+          console.log(savedMovies);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          setIsSavedMovies(true);
+        });
+    } else {
+      setIsSavedMovies(true);
+    }
+  }, [isLogged]);
+
   return (
     <>
-      {isTokenChecked ? (
+      {isTokenChecked && isSavedMovies ? (
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
             <Route path='/' element={<Main isLogged={isLogged} />} />
@@ -153,7 +157,7 @@ function App() {
               path='/movies'
               element={
                 <ProtectedRouteElement isLogged={isLogged}>
-                  <Movies onSave={handleSave} />
+                  <Movies onSave={handleSave} savedMovies={savedMovies} />
                 </ProtectedRouteElement>
               }
             />
@@ -161,7 +165,10 @@ function App() {
               path='/saved-movies'
               element={
                 <ProtectedRouteElement isLogged={isLogged}>
-                  <SavedMovies onUnsave={handleUnsave} />
+                  <SavedMovies
+                    onUnsave={handleUnsave}
+                    savedMovies={savedMovies}
+                  />
                 </ProtectedRouteElement>
               }
             />

@@ -1,4 +1,4 @@
-export const MOVIE_BASE_URL = 'https://api.nomoreparties.co/';
+export const MOVIE_BASE_URL = 'https://api.nomoreparties.co';
 
 /**
  * * Отображение разного количества карточек в зависимости от размера экрана

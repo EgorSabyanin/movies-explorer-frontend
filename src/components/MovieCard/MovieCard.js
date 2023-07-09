@@ -7,12 +7,11 @@ import {
   getCorrectPathForImage,
 } from '../../utils/utils';
 
-function MovieCard({ card, isSaved = false, onUnsave, onSave }) {
+function MovieCard({ card, onUnsave, onSave, saved }) {
   const location = useLocation();
 
   function handleSave(event) {
     event.target.classList.toggle('movie-card__button_active');
-    console.log('Save =>', card);
     onSave(card);
   }
 
@@ -46,7 +45,7 @@ function MovieCard({ card, isSaved = false, onUnsave, onSave }) {
           <button
             onClick={handleSave}
             className={
-              isSaved
+              saved
                 ? 'movie-card__button movie-card__button_active'
                 : 'movie-card__button'
             }
