@@ -15,6 +15,9 @@ import Preloader from '../Preloader/Preloader';
 import './App.css';
 
 import { mainApi } from '../../utils/MainApi';
+
+import { MOVIE_BASE_URL } from '../../constants/constants';
+
 /*
  * Context
  * Подключение контекста
@@ -27,10 +30,31 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isTokenChecked, setIsTokenChecked] = useState(false);
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     tokenCheck();
-    console.log('From App isLogged = ', isLogged);
+  }, [isLogged]);
+
+  /** Получение коллекции сохраненных фильмов */
+  useEffect(() => {
+    if (isLogged) {
+      setIsLoading(true);
+      Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
+        .then(([currentUserInfo, moviesData]) => {
+          setCurrentUser(currentUserInfo);
+          setSavedMovies(
+            moviesData.filter((x) => x.owner === currentUser._id).reverse()
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   }, [isLogged]);
 
   /**
@@ -44,12 +68,9 @@ function App() {
         .getMe()
         .then((res) => {
           setIsLogged(true);
-          console.log('tokenCheck, isLogged = ', isLogged);
           setCurrentUser({ name: res.name, email: res.email });
         })
-        .catch((error) => {
-          console.log(error);
-        })
+        .catch((error) => {})
         .finally(() => {
           setIsTokenChecked(true);
         });
@@ -82,6 +103,46 @@ function App() {
     return mainApi.editUserData(userData);
   }
 
+  /** Обработка сохраненния фильма */
+  function handleSave(movie) {
+    mainApi
+      .saveMovie({
+        movieData: {
+          country: movie.country,
+          director: movie.director,
+          duration: movie.duration,
+          year: movie.year,
+          description: movie.description,
+          image: `${MOVIE_BASE_URL}${movie.image.url}`,
+          trailerLink: movie.trailerLink,
+          nameRU: movie.nameRU,
+          nameEN: movie.nameEN,
+          thumbnail: `${MOVIE_BASE_URL}${movie.image.url}`,
+          movieId: movie.id,
+        },
+      })
+      .then((savedMovie) => {
+        setSavedMovies([savedMovie, ...savedMovies]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  /** Обработка удаления фильма */
+  function handleUnsave(movie) {
+    mainApi
+      .deleteMovie({ id: movie._id })
+      .then((res) => {
+        setSavedMovies((state) =>
+          state.filter((item) => item._id !== movie._id)
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       {isTokenChecked ? (
@@ -92,7 +153,7 @@ function App() {
               path='/movies'
               element={
                 <ProtectedRouteElement isLogged={isLogged}>
-                  <Movies />
+                  <Movies onSave={handleSave} />
                 </ProtectedRouteElement>
               }
             />
@@ -100,7 +161,7 @@ function App() {
               path='/saved-movies'
               element={
                 <ProtectedRouteElement isLogged={isLogged}>
-                  <SavedMovies />
+                  <SavedMovies onUnsave={handleUnsave} />
                 </ProtectedRouteElement>
               }
             />

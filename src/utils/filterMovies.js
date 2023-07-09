@@ -1,12 +1,12 @@
 import { SHORT_MOVIES } from '../constants/constants';
 
 /**
- * @name findMoviesByQuery
+ * @name filterMoviesByQuery
  * @param {array} movies список фильмов
  * @param {string} query поисковый запрос
  * @returns коллекция найденных фильмов по запросу
  */
-export function findMoviesByQuery(movies, query) {
+export function filterMoviesByQuery(movies, query) {
   const foundMovies = movies.filter((movie) => {
     const searchQuery = query.toLowerCase().trim();
 
@@ -21,10 +21,10 @@ export function findMoviesByQuery(movies, query) {
 }
 
 /**
- * @ name findShortMovies
- * @param {*} movies список фильмов
- * @returns коллекция найденных фильмов по продолжительности в минутах
+ * @ name filterMoviesByDuration
+ * @param {array} movies список фильмов
+ * @returns коллекция короткометражных фильмов
  */
-export function findShortMovies(movies) {
+export function filterMoviesByDuration(movies) {
   return movies.filter((movie) => movie.duration < SHORT_MOVIES);
 }

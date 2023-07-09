@@ -7,22 +7,29 @@ import {
   getCorrectPathForImage,
 } from '../../utils/utils';
 
-function MovieCard({ card, isSaved = false }) {
+function MovieCard({ card, isSaved = false, onUnsave, onSave }) {
   const location = useLocation();
 
-  function handleSaveButton(event) {
+  function handleSave(event) {
     event.target.classList.toggle('movie-card__button_active');
-    console.log(card);
-    /* Запрос в БД с добавлением в понравившейся карточки */
+    console.log('Save =>', card);
+    onSave(card);
+  }
+
+  function handleUnsave(card) {
+    console.log('Unsave =>', card);
+    onUnsave(card._id);
   }
 
   return (
     <div className='movie-card'>
-      <img
-        src={getCorrectPathForImage(card.image.url)}
-        className='movie-card__preview'
-        alt={card.nameRU}
-      />
+      <a target='_blank' href={card.trailerLink} rel='noreferrer'>
+        <img
+          src={getCorrectPathForImage(card.image.url)}
+          className='movie-card__preview'
+          alt={card.nameRU}
+        />
+      </a>
       <div className='movie-card__wrapper'>
         <div className='movie-card__info'>
           <h3 className='movie-card__title'>{card.nameRU}</h3>
@@ -31,10 +38,13 @@ function MovieCard({ card, isSaved = false }) {
           </p>
         </div>
         {location.pathname === '/saved-movies' ? (
-          <button className='movie-card__delete'></button>
+          <button
+            className='movie-card__delete'
+            onClick={handleUnsave}
+          ></button>
         ) : (
           <button
-            onClick={handleSaveButton}
+            onClick={handleSave}
             className={
               isSaved
                 ? 'movie-card__button movie-card__button_active'

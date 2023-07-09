@@ -3,7 +3,10 @@ import { useRef, useState, useEffect } from 'react';
 
 /* Подключение API  */
 import { moviesApi } from '../../utils/MoviesApi';
-import { findMoviesByQuery, findShortMovies } from '../../utils/findMovies';
+import {
+  filterMoviesByQuery,
+  filterMoviesByDuration,
+} from '../../utils/filterMovies';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -15,22 +18,98 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './Movies.css';
 
-function Movies() {
+function Movies({ onSave }) {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
 
+  /**
+   * Обработка фильмов
+   */
   const [initialMovies, setInitialMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isShortMovies, setIsShortMovies] = useState(false);
+  const [isRequestError, setIsRequestError] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const handleFilterMovies = (movies, query, short) => {
-    const moviesList = findMoviesByQuery(movies, query, short);
+    const moviesList = filterMoviesByQuery(movies, query, short);
     setInitialMovies(moviesList);
-    setFilteredMovies(short ? findShortMovies(moviesList) : moviesList);
-    localStorage.setItem('movies', JSON.stringify(moviesList));
+    setFilteredMovies(short ? filterMoviesByDuration(moviesList) : moviesList);
     localStorage.setItem('allMovies', JSON.stringify(movies));
+    localStorage.setItem('movies', JSON.stringify(moviesList));
     localStorage.setItem('shorts', JSON.stringify(short));
   };
+
+  const handleShortMovies = () => {
+    setIsShortMovies(!isShortMovies);
+    if (!isShortMovies) {
+      if (filterMoviesByDuration(initialMovies).length === 0) {
+        setFilteredMovies(filterMoviesByDuration(initialMovies));
+      } else {
+        setFilteredMovies(filterMoviesByDuration(initialMovies));
+      }
+    } else {
+      setFilteredMovies(initialMovies);
+    }
+    localStorage.setItem('shorts', !isShortMovies);
+  };
+
+  const onSearch = (query) => {
+    localStorage.setItem('query', query);
+    localStorage.setItem('shorts', isShortMovies);
+
+    if (localStorage.getItem('allMovies')) {
+      const movies = JSON.parse(localStorage.getItem('allMovies'));
+      handleFilterMovies(movies, query, isShortMovies);
+    } else {
+      setIsLoading(true);
+      moviesApi
+        .getAllMovies()
+        .then((cardsData) => {
+          handleFilterMovies(cardsData, query, isShortMovies);
+          setIsRequestError(false);
+        })
+        .catch((err) => {
+          setIsRequestError(true);
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('movies')) {
+      const movies = JSON.parse(localStorage.getItem('movies'));
+      setInitialMovies(movies);
+      if (localStorage.getItem('shorts') === 'true') {
+        setFilteredMovies(filterMoviesByDuration(movies));
+      } else {
+        setFilteredMovies(movies);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem('query')) {
+      if (filteredMovies.length === 0) {
+        setIsNotFound(true);
+      } else {
+        setIsNotFound(false);
+      }
+    } else {
+      setIsNotFound(false);
+    }
+  }, [filteredMovies]);
+
+  useEffect(() => {
+    if (localStorage.getItem('shorts') === 'true') {
+      setIsShortMovies(true);
+    } else {
+      setIsShortMovies(false);
+    }
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -126,8 +205,19 @@ function Movies() {
         </div>
       </Header>
       <main className='movies'>
-        <SearchMovies />
-        <MoviesList cards={movieCards} isLoading={isLoading}>
+        <SearchMovies
+          onSearch={onSearch}
+          onCheckbox={handleShortMovies}
+          isShortMovies={isShortMovies}
+        />
+        <MoviesList
+          isLoading={isLoading}
+          cards={filteredMovies}
+          isSavedMovies={false}
+          isNotFound={isNotFound}
+          isRequestError={isRequestError}
+          onSave={onSave}
+        >
           {/* <MovieCard
             title='33 слова о дизайне'
             duration='1ч42м'

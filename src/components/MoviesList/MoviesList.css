@@ -2,6 +2,10 @@
   margin-top: 118px;
 }
 
+.movies-list__error {
+  margin-top: 30px;
+}
+
 .movies-list__wrapper {
   display: grid;
   column-gap: 20px;

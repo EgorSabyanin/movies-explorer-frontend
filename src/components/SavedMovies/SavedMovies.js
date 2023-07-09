@@ -11,7 +11,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './SavedMovies.css';
 
-function SavedMovies() {
+function SavedMovies({ savedMovies, onUnsave }) {
   const buttonOpenNavigation = useRef(null);
   const mobileNavigation = useRef(null);
   const buttonCloseNavigation = useRef(null);
@@ -91,7 +91,7 @@ function SavedMovies() {
       </Header>
       <main className='saved-movies'>
         <SearchMovies />
-        <MoviesList></MoviesList>
+        <MoviesList onUnsave={onUnsave} />
       </main>
       <Footer />
     </>

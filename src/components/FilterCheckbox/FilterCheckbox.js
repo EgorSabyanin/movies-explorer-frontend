@@ -1,27 +1,20 @@
-import React, { useState } from "react";
-import "./FilterCheckbox.css";
+import './FilterCheckbox.css';
 
-const FilterCheckbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-
+const FilterCheckbox = ({ onCheckbox, isShortMovies }) => {
   return (
-    <div className="filter-checkbox">
-      <label className="filter-checkbox__switch">
+    <div className='filter-checkbox'>
+      <label className='filter-checkbox__switch'>
         <input
-          className="filter-checkbox__input"
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-          name="short"
+          className='filter-checkbox__input'
+          type='checkbox'
+          checked={isShortMovies}
+          onChange={onCheckbox}
+          name='short'
         />
-        <span className="filter-checkbox__slider filter-checkbox__slider_type_round"></span>
+        <span className='filter-checkbox__slider filter-checkbox__slider_type_round'></span>
       </label>
-      <p className="filter-checkbox__text">
-        <span onClick={handleCheckboxChange}>Короткометражки</span>
+      <p className='filter-checkbox__text'>
+        <span onClick={onCheckbox}>Короткометражки</span>
       </p>
     </div>
   );

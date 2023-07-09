@@ -85,7 +85,11 @@ class MainApi {
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
-      headers: this._headers,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       credentials: 'include',
     }).then((res) => {
       return this._checkResponse(res);
@@ -96,7 +100,11 @@ class MainApi {
   saveMovie(movieData) {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify(movieData),
       credentials: 'include',
     }).then((res) => {
@@ -108,7 +116,11 @@ class MainApi {
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       credentials: 'include',
     }).then((res) => {
       return this._checkResponse(res);
