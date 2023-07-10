@@ -3,7 +3,7 @@
 Этот репозиторий содержит Frontend часть дипломной работы
 ## Frontend
 
-<http://movies.egorsabyanin.nomoredomains.rock>
+<http://movies.egorsabyanin.nomoredomains.rocks/>
 
 ## Pull Request
 

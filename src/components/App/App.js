@@ -35,8 +35,6 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [test, setTest] = useState([]);
-
   useEffect(() => {
     tokenCheck();
   }, [isLogged]);
@@ -128,7 +126,9 @@ function App() {
     if (isLogged) {
       Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
         .then(([currentUserInfo, moviesData]) => {
-          setSavedMovies(moviesData);
+          setSavedMovies(
+            moviesData.filter((x) => x.owner === currentUserInfo._id)
+          );
           setCurrentUser(currentUserInfo);
         })
         .catch((error) => {
@@ -147,7 +147,11 @@ function App() {
               path='/movies'
               element={
                 <ProtectedRouteElement isLogged={isLogged}>
-                  <Movies onSave={handleSave} savedMovies={savedMovies} />
+                  <Movies
+                    onSave={handleSave}
+                    onUnsave={handleUnsave}
+                    savedMovies={savedMovies}
+                  />
                 </ProtectedRouteElement>
               }
             />

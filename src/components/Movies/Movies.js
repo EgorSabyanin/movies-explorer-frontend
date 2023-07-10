@@ -18,7 +18,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './Movies.css';
 
-function Movies({ onSave, savedMovies }) {
+function Movies({ onSave, onUnsave, savedMovies }) {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
 
@@ -218,6 +218,7 @@ function Movies({ onSave, savedMovies }) {
           isNotFound={isNotFound}
           isRequestError={isRequestError}
           onSave={onSave}
+          onUnsave={onUnsave}
         ></MoviesList>
       </main>
       <Footer />

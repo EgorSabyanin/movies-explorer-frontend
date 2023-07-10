@@ -77,6 +77,16 @@ function MoviesCardList({
         <>
           {location.pathname === '/saved-movies' ? (
             <>
+              {isNotFound && (
+                <span className='form__error movies-list__error'>
+                  {SEARCH_MOVIES_NOT_FOUND_MESSAGE}
+                </span>
+              )}
+              {isRequestError && (
+                <span className='form__error movies-list__error'>
+                  {SEARCH_MOVIES_SERVER_ERROR_MESSAGE}
+                </span>
+              )}
               <div className='movies-list'>
                 <div className='movies-list__wrapper'>
                   {cards.map((card) => {
@@ -118,6 +128,7 @@ function MoviesCardList({
                         card={card}
                         saved={getSavedCard(savedMovies, card)}
                         onSave={onSave}
+                        onUnsave={onUnsave}
                         isSavedMovies={isSavedMovies}
                         savedMovies={savedMovies}
                       />

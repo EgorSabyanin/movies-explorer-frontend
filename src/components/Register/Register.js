@@ -51,6 +51,11 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
               })
             );
             localStorage.setItem('jwt', res.token);
+
+            /** Зачистка от прошлого пользователя */
+            localStorage.removeItem('movies');
+            localStorage.removeItem('query');
+            localStorage.removeItem('shorts');
             navigate('/movies');
           })
           .catch((error) => {
