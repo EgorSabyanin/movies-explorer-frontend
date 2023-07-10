@@ -10,6 +10,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Movies from '../Movies/Movies';
 
+import AuthorizeRoute from '../AuthorizeRoute';
 import ProtectedRouteElement from '../ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
 import './App.css';
@@ -177,21 +178,25 @@ function App() {
             <Route
               path='/signin'
               element={
-                <Login
-                  onSubmit={handleSignIn}
-                  setLogged={setIsLogged}
-                  setCurrentUser={setCurrentUser}
-                />
+                <AuthorizeRoute isLogged={isLogged}>
+                  <Login
+                    onSubmit={handleSignIn}
+                    setLogged={setIsLogged}
+                    setCurrentUser={setCurrentUser}
+                  />
+                </AuthorizeRoute>
               }
             />
             <Route
               path='/signup'
               element={
-                <Register
-                  onSubmit={handleSignUp}
-                  setLogged={setIsLogged}
-                  setCurrentUser={setCurrentUser}
-                />
+                <AuthorizeRoute isLogged={isLogged}>
+                  <Register
+                    onSubmit={handleSignUp}
+                    setLogged={setIsLogged}
+                    setCurrentUser={setCurrentUser}
+                  />
+                </AuthorizeRoute>
               }
             />
             <Route path='*' element={<Navigate to='/404' replace />} />

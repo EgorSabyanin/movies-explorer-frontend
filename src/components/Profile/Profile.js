@@ -4,20 +4,29 @@ import { Link } from 'react-router-dom';
 import { EMAIL_PATTERN } from '../../constants/constants';
 
 import CurrentUserContext from '../../context/CurrentUserContext';
+
 import useForm from '../../hooks/useForm';
+
 import Logo from '../Logo';
 import userAccountIcon from '../../images/user_account.svg';
+
+import Modal from '../Modal/Modal';
 import Header from '../Header/Header';
 
 import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__submit/form__submit.css';
-
 import './Profile.css';
 
 function Profile({ onLogout, onEditProfile, setCurrentUser }) {
   const currentUser = useContext(CurrentUserContext);
   const [isCurrentValues, setIsCurrentValues] = useState(false);
+
+  /** Обработка формы */
   const { values, errors, handleChange, isFormValid, resetForm } = useForm();
+
+  /** Настройки модального окна */
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [messageModal, setMessageModal] = useState('');
 
   const [responseError, setResponseError] = useState(false);
 
@@ -64,8 +73,12 @@ function Profile({ onLogout, onEditProfile, setCurrentUser }) {
           })
         );
         setCurrentUser({ name: res.name, email: res.email });
+        setIsOpenModal(true);
+        setMessageModal('Данные пользователя обновлены успешно!');
       })
       .catch((error) => {
+        setIsOpenModal(true);
+        setMessageModal('При обновлении профиля произошла ошибка.');
         setResponseError(error);
       });
   }
@@ -90,6 +103,11 @@ function Profile({ onLogout, onEditProfile, setCurrentUser }) {
 
   return (
     <>
+      <Modal
+        isOpen={isOpenModal}
+        setIsOpen={setIsOpenModal}
+        message={messageModal}
+      />
       <nav className='navigation-mobile' ref={mobileNavigation}>
         <div className='navigation-mobile__wrapper'>
           <button
