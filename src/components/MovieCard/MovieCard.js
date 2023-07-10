@@ -15,8 +15,7 @@ function MovieCard({ card, onUnsave, onSave, saved }) {
     onSave(card);
   }
 
-  function handleUnsave(card) {
-    console.log('Unsave =>', card);
+  function handleUnsave() {
     onUnsave(card._id);
   }
 
@@ -24,7 +23,11 @@ function MovieCard({ card, onUnsave, onSave, saved }) {
     <div className='movie-card'>
       <a target='_blank' href={card.trailerLink} rel='noreferrer'>
         <img
-          src={getCorrectPathForImage(card.image.url)}
+          src={
+            location.pathname === '/movies'
+              ? getCorrectPathForImage(card.image.url)
+              : card.image
+          }
           className='movie-card__preview'
           alt={card.nameRU}
         />

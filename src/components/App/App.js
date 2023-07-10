@@ -111,13 +111,11 @@ function App() {
   }
 
   /** Обработка удаления фильма */
-  function handleUnsave(movie) {
+  function handleUnsave(movieId) {
     mainApi
-      .deleteMovie({ id: movie._id })
+      .deleteMovie(movieId)
       .then((res) => {
-        setSavedMovies((state) =>
-          state.filter((item) => item._id !== movie._id)
-        );
+        setSavedMovies((state) => state.filter((item) => item._id !== movieId));
       })
       .catch((error) => {
         console.log(error);
@@ -129,7 +127,6 @@ function App() {
     if (isLogged) {
       Promise.all([mainApi.getMe(), mainApi.getSavedMovies()])
         .then(([currentUserInfo, moviesData]) => {
-          console.log(moviesData);
           setSavedMovies(moviesData);
           setCurrentUser(currentUserInfo);
         })
@@ -139,7 +136,6 @@ function App() {
     }
   }, [isLogged]);
 
-  console.log('it => ', savedMovies);
   return (
     <>
       {isTokenChecked ? (
