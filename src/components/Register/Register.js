@@ -36,6 +36,7 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
 
     onSubmit(userData)
       .then((res) => {
+        localStorage.clear();
         const { email, password } = userData;
         setCurrentUser(userData);
         setResponseError(false);
@@ -46,16 +47,11 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
             localStorage.setItem(
               'currentUser',
               JSON.stringify({
-                name: res.name,
-                email: res.email,
+                name: userData.name,
+                email: userData.email,
               })
             );
             localStorage.setItem('jwt', res.token);
-
-            /** Зачистка от прошлого пользователя */
-            localStorage.removeItem('movies');
-            localStorage.removeItem('query');
-            localStorage.removeItem('shorts');
             navigate('/movies');
           })
           .catch((error) => {
