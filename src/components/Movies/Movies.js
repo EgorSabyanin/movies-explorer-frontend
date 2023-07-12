@@ -18,7 +18,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 import './Movies.css';
 
-function Movies({ onSave, onUnsave, savedMovies }) {
+function Movies({ onSave, onUnsave, savedMovies, isLogged }) {
   const [isLoading, setIsLoading] = useState(true);
   const [movieCards, setMovieCards] = useState([]);
 
@@ -58,24 +58,26 @@ function Movies({ onSave, onUnsave, savedMovies }) {
     localStorage.setItem('query', query);
     localStorage.setItem('shorts', isShortMovies);
 
-    if (localStorage.getItem('allMovies')) {
-      const movies = JSON.parse(localStorage.getItem('allMovies'));
-      handleFilterMovies(movies, query, isShortMovies);
-    } else {
-      setIsLoading(true);
-      moviesApi
-        .getAllMovies()
-        .then((cardsData) => {
-          handleFilterMovies(cardsData, query, isShortMovies);
-          setIsRequestError(false);
-        })
-        .catch((err) => {
-          setIsRequestError(true);
-          console.log(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
+    if (isLogged) {
+      if (localStorage.getItem('allMovies')) {
+        const movies = JSON.parse(localStorage.getItem('allMovies'));
+        handleFilterMovies(movies, query, isShortMovies);
+      } else {
+        setIsLoading(true);
+        moviesApi
+          .getAllMovies()
+          .then((cardsData) => {
+            handleFilterMovies(cardsData, query, isShortMovies);
+            setIsRequestError(false);
+          })
+          .catch((err) => {
+            setIsRequestError(true);
+            console.log(err);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      }
     }
   };
 
@@ -112,18 +114,20 @@ function Movies({ onSave, onUnsave, savedMovies }) {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-    moviesApi
-      .getAllMovies()
-      .then((res) => {
-        setMovieCards(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    if (isLogged) {
+      setIsLoading(true);
+      moviesApi
+        .getAllMovies()
+        .then((res) => {
+          setMovieCards(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   }, []);
 
   const buttonOpenNavigation = useRef(null);

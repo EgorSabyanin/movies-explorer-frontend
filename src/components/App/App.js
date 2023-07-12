@@ -150,6 +150,7 @@ function App() {
                     onSave={handleSave}
                     onUnsave={handleUnsave}
                     savedMovies={savedMovies}
+                    isLogged={isLogged}
                   />
                 </ProtectedRouteElement>
               }
