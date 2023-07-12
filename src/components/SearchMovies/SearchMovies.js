@@ -18,7 +18,6 @@ function SearchMovies({ onSearch, isShortMovies, onCheckbox }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     if (query.trim().length === 0) {
       setHasQueryError(true);
     } else {

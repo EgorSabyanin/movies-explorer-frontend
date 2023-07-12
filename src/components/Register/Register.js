@@ -36,6 +36,7 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
 
     onSubmit(userData)
       .then((res) => {
+        setIsLoading(true);
         localStorage.clear();
         const { email, password } = userData;
         setCurrentUser(userData);
@@ -43,6 +44,7 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
         mainApi
           .signin({ email, password })
           .then((res) => {
+            setIsLoading(true);
             setLogged(true);
             localStorage.setItem(
               'currentUser',
@@ -63,6 +65,9 @@ function Register({ onSubmit, setLogged, setCurrentUser }) {
       })
       .catch((error) => {
         setResponseError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
   return (
