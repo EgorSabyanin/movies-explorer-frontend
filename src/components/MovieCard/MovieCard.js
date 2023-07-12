@@ -7,16 +7,28 @@ import {
   getCorrectPathForImage,
 } from '../../utils/utils';
 
-function MovieCard({ card, onUnsave, onSave, saved }) {
+function MovieCard({ card, onUnsave, onSave, saved, savedMovies }) {
   const location = useLocation();
 
-  function handleSave(event) {
-    event.target.classList.toggle('movie-card__button_active');
+  function handleSave() {
     onSave(card);
   }
 
   function handleUnsave() {
     onUnsave(card._id);
+  }
+
+  function handleClick(event) {
+    if (saved) {
+      event.target.classList.remove('movie-card__button_active');
+      const movie = savedMovies.filter((movie) => {
+        return card.id === movie.movieId;
+      });
+      onUnsave(movie[0]._id);
+    } else {
+      event.target.classList.add('movie-card__button_active');
+      handleSave(card);
+    }
   }
 
   return (
@@ -46,7 +58,7 @@ function MovieCard({ card, onUnsave, onSave, saved }) {
           ></button>
         ) : (
           <button
-            onClick={handleSave}
+            onClick={handleClick}
             className={
               saved
                 ? 'movie-card__button movie-card__button_active'
