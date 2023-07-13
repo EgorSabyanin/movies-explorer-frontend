@@ -1,0 +1,67 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: alL 700ms;
+}
+
+.modal_open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__container {
+  position: relative;
+  background-color: #fff;
+  width: 300px;
+  min-height: 300px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__message {
+  padding: unset;
+  margin: unset;
+  color: #000;
+  font-size: 18px;
+  font-family: Inter, sans-serif;
+  line-height: 24px;
+  text-align: center;
+  padding: 10px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 15px;
+  border: none;
+  background-color: none;
+  background-image: url(../../images/cross.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all 700ms;
+  background-color: #000;
+  border-radius: 100%;
+}
+
+.modal__close:active,
+.modal__close:hover {
+  opacity: 0.8;
+}

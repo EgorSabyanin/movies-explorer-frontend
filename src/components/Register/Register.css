@@ -1,95 +1,106 @@
+.preloader-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+
 .register {
-    width: 396px;
-    margin: 0 auto;
-    padding: unset;
+  width: 396px;
+  margin: 0 auto;
+  padding: unset;
 }
 
 .register__icon {
-    padding-top: 70px;
+  padding-top: 70px;
 }
 
 .register__title {
-    padding: unset;
-    margin: unset;
-    margin-top: 40px;
-    color: #FFF;
-    font-size: 24px;
-    font-family: Inter, sans-serif;
-    font-weight: 500;    
+  padding: unset;
+  margin: unset;
+  margin-top: 40px;
+  color: #fff;
+  font-size: 24px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
 }
 
 .register__label {
-    display: block;
-    margin-top: 20px;
+  display: block;
+  margin-top: 20px;
 }
 
 .register__label:first-of-type {
-    margin-top: unset;
+  margin-top: unset;
 }
 
 .register__input {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .register__form {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .register__fieldset {
-    padding: unset;
-    margin: unset;
-    border: none;
+  padding: unset;
+  margin: unset;
+  border: none;
 }
 
 .register__submit {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 
 .register__error {
-    display: block;
-    margin: unset;
-    padding: unset;
-    margin-top: 10px;
+  display: block;
+  margin: unset;
+  padding: unset;
+  margin-top: 10px;
 }
 
 .register__text {
-    margin: unset;
-    padding: unset;
-    margin-top: 14px;
+  margin: unset;
+  padding: unset;
+  margin-top: 14px;
 }
 
 .register__icon {
-    display: block;
+  display: block;
 }
 
 @media screen and (width < 1024px) {
-    .register__icon {
-        padding-top: 230px;
-    }
+  .register__icon {
+    padding-top: 230px;
+  }
 }
 
 @media screen and (width < 768px) {
-    .register {
-        width: 260px;
-    }
+  .register {
+    width: 260px;
+  }
 
-    .register__icon {
-        display: flex;
-        justify-content: center;
-        padding-top: 55px;
-    }
+  .register__icon {
+    display: flex;
+    justify-content: center;
+    padding-top: 55px;
+  }
 
-    .register__title {
-        margin-top: 50px;
-        text-align: center;
-    }
+  .register__title {
+    margin-top: 50px;
+    text-align: center;
+  }
 
-    .register__form {
-        margin-top: 80px;
-    }
-    
+  .register__form {
+    margin-top: 80px;
+  }
 
-    .register__submit {
-        margin-top: 157px;
-    }
+  .register__submit {
+    margin-top: 157px;
+  }
 }

@@ -1,28 +1,33 @@
 .form__submit {
-    padding: unset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    height: 45px;
-    width: 100%;
-    font-size: 14px;
-    font-family: Inter, sans-serif;
-    font-weight: 500; 
-    border-radius: 3px;
-    background: #4285F4;
-    border: none;
-    cursor: pointer;
-    transition: all 500ms;
+  padding: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 45px;
+  width: 100%;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  border-radius: 3px;
+  background: #4285f4;
+  border: none;
+  cursor: pointer;
+  transition: all 500ms;
 }
 
 .form__submit:hover {
-    opacity: .8;
+  opacity: 0.8;
+}
+
+.form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media screen and (width < 768px) {
-    .form__submit {
-        font-size: 12px;
-        line-height: normal;
-    }
+  .form__submit {
+    font-size: 12px;
+    line-height: normal;
+  }
 }

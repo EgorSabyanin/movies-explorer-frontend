@@ -1,7 +1,12 @@
-import './Register.css';
-import logo from '../../logo.svg'
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+import { EMAIL_PATTERN } from '../../constants/constants';
+import useForm from '../../hooks/useForm';
+import { mainApi } from '../../utils/MainApi';
+
+import './Register.css';
+import logo from '../../logo.svg';
 
 import '../../blocks/form/__label/form__label.css';
 import '../../blocks/form/__input/form__input.css';
@@ -9,32 +14,170 @@ import '../../blocks/form/__input/_error/form__input_error.css';
 import '../../blocks/form/__submit/form__submit.css';
 import '../../blocks/form/__error/form__error.css';
 import '../../blocks/form/__link/form__link.css';
-import '../../blocks/form/__text/form__text.css'
+import '../../blocks/form/__text/form__text.css';
 
-function Register() {
-    return (
-        <main className="register">
-            <div className="register__icon">
-                <Link className="register__icon-link" to="/">
-                    <img src={logo} alt="Логотип проекта" />
-                </Link>
-            </div>
-            <h2 className="register__title">Добро пожаловать!</h2>
-            <form className="form register__form">
-                <fieldset className='register__fieldset'>
-                    <label className="form__label register__label" htmlFor="name">Имя</label>
-                    <input className="form__input register__input" type="text" placeholder="Имя" id="name" name="name" required minLength="2" maxLength="30" />
-                    <label className="form__label register__label" htmlFor="email">E-mail</label>
-                    <input className="form__input register__input" type="email" placeholder="E-mail" id="email" name="email" required />
-                    <label className="form__label register__label" htmlFor="password">Пароль</label>
-                    <input className="form__input form__input_error register__input" type="password" placeholder='Пароль' id="password" name="password" required />
-                    <span className="form__error register__error">Что-то пошло не так...</span>
-                    <button className="form__submit register__submit" type="submit">Зарегистрироваться</button>
-                </fieldset>
-                <p className="register__text form__text">Уже зарегистированы? <Link className="form__link" to="/signin">Войти</Link></p>
-            </form>
-        </main>
-    );
+import Preloader from '../Preloader/Preloader';
+
+function Register({ onSubmit, setLogged, setCurrentUser }) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseError, setResponseError] = useState(false);
+  const { values, errors, handleChange, isFormValid } = useForm();
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    setIsLoading(true);
+    event.preventDefault();
+    const userData = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    onSubmit(userData)
+      .then((res) => {
+        setIsLoading(true);
+        localStorage.clear();
+        const { email, password } = userData;
+        setCurrentUser(userData);
+        setResponseError(false);
+        mainApi
+          .signin({ email, password })
+          .then((res) => {
+            setIsLoading(true);
+            setLogged(true);
+            localStorage.setItem(
+              'currentUser',
+              JSON.stringify({
+                name: userData.name,
+                email: userData.email,
+              })
+            );
+            localStorage.setItem('jwt', res.token);
+            navigate('/movies');
+          })
+          .catch((error) => {
+            setResponseError(error);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      })
+      .catch((error) => {
+        setResponseError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+  return (
+    <main className='register'>
+      {isLoading ? (
+        <>
+          <div className='preloader-wrapper'>
+            <Preloader />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className='register__icon'>
+            <Link className='register__icon-link' to='/'>
+              <img src={logo} alt='Логотип проекта' />
+            </Link>
+          </div>
+          <h2 className='register__title'>Добро пожаловать!</h2>
+          <form className='form register__form' onSubmit={handleSubmit}>
+            <fieldset className='register__fieldset'>
+              <label className='form__label register__label' htmlFor='name'>
+                Имя
+              </label>
+              <input
+                className={
+                  errors.name
+                    ? 'form__input form__input_error register__input'
+                    : 'form__input register__input'
+                }
+                type='text'
+                placeholder='Имя'
+                id='name'
+                name='name'
+                required
+                minLength='2'
+                maxLength='30'
+                onChange={handleChange}
+              />
+              {errors.name && (
+                <span className='form__error register__error'>
+                  {errors.name}
+                </span>
+              )}
+              <label className='form__label register__label' htmlFor='email'>
+                E-mail
+              </label>
+              <input
+                className={
+                  errors.email
+                    ? 'form__input form__input_error register__input'
+                    : 'form__input register__input'
+                }
+                pattern={EMAIL_PATTERN}
+                type='email'
+                placeholder='E-mail'
+                id='email'
+                name='email'
+                onChange={handleChange}
+                required
+              />
+              {errors.email && (
+                <span className='form__error register__error'>
+                  {errors.email}
+                </span>
+              )}
+              <label className='form__label register__label' htmlFor='password'>
+                Пароль
+              </label>
+              <input
+                className={
+                  errors.password
+                    ? 'form__input form__input_error register__input'
+                    : 'form__input register__input'
+                }
+                type='password'
+                placeholder='Пароль'
+                id='password'
+                name='password'
+                onChange={handleChange}
+                required
+              />
+              {errors.password && (
+                <span className='form__error register__error'>
+                  {errors.password}
+                </span>
+              )}
+              {responseError && (
+                <span className='form__error register__error'>
+                  {responseError}
+                </span>
+              )}
+              <button
+                className='form__submit register__submit'
+                type='submit'
+                disabled={!isFormValid}
+              >
+                Зарегистрироваться
+              </button>
+            </fieldset>
+          </form>
+          <p className='register__text form__text'>
+            Уже зарегистированы?{' '}
+            <Link className='form__link' to='/signin'>
+              Войти
+            </Link>
+          </p>
+        </>
+      )}
+    </main>
+  );
 }
 
 export default Register;
